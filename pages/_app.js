@@ -1,14 +1,23 @@
 import Navbar from '../components/layout/Navbar';
-import '/styles/global.scss';
+import '/styles/reset.scss';
 import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from '../styles/themes';
+import GlobalStyles from '../styles/GlobalStyles';
+import { defaultTheme, darkTheme, getFromTheme } from '../styles/themes';
+import { useState } from 'react';
+
 function MyApp({ Component, pageProps }) {
+  const [theme, setTheme] = useState('default');
+  const handleThemeClick = () =>
+    setTheme(theme === 'default' ? 'dark' : 'default');
+
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Navbar>
+    <>
+      <ThemeProvider theme={theme === 'default' ? defaultTheme : darkTheme}>
+        <GlobalStyles />
+        <Navbar handleThemeClick={handleThemeClick} theme={theme} />
         <Component {...pageProps} />
-      </Navbar>
-    </ThemeProvider>
+      </ThemeProvider>
+    </>
   );
 }
 

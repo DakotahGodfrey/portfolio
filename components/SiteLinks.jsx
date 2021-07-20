@@ -6,7 +6,7 @@ const SiteLinks = ({ links, children }) => {
     <ul>
       {links.map(({ display, path }) => {
         return (
-          <li key={path}>
+          <li className='nav-link' key={path}>
             <Link href={path}>{display}</Link>
           </li>
         );
