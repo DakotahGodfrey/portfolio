@@ -1,4 +1,3 @@
-const BASE_URL = 'https://dgdev-cms.herokuapp.com';
-const BLOG_URL = 'https://dgdev-cms.herokuapp.com/articles';
-
-export { BASE_URL, BLOG_URL };
+const BLOG_URL = 'https://dgdev-cms.herokuapp.com/graphql';
+const GITHUB_URL = 'https://api.github.com/graphql';
+export { BLOG_URL, GITHUB_URL };

@@ -12,7 +12,7 @@ const SiteHeader = styled.header`
   grid-template-columns: 1fr max-content;
   align-items: center;
   justify-content: space-between;
-  max-width: 80rem;
+  max-width: 100rem;
   margin-inline: auto;
   background-color: ${getFromTheme('secondary')};
   padding: 2rem;

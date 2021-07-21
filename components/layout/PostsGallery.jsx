@@ -4,26 +4,26 @@ import Image from 'next/image';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { getFromTheme } from '../../styles/themes';
-import { BASE_URL } from '../../api/api';
-
+import Link from 'next/link';
 const PostFigure = styled.figure`
+  padding: 0 0 1rem;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   > div {
-    margin-bottom: 1rem;
+    margin-bottom: 1.6rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    height: 17.5rem;
   }
   img {
-    border-radius: 20px;
+    border-radius: 5px;
     border: 1px solid #eee;
   }
   figcaption {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    line-clamp: 2;
     font-size: ${getFromTheme('body')};
   }
   h3 {
-    font-size: ${getFromTheme('headingSM')};
+    font-size: ${getFromTheme('headingMD')};
   }
 `;
 
@@ -32,25 +32,27 @@ const PostCard = ({ post }) => {
     <PostFigure>
       <div>
         <Image
-          src={`${BASE_URL}${post.cover.formats.medium.url}`}
+          src={`${post.image.url}`}
           alt={post.title}
-          width={post.cover.formats.medium.width}
-          height={post.cover.formats.medium.height}
-          layout='responsive'
+          layout='fill'
+          objectFit='cover'
+          objectPosition='center center'
           quality={75}
         />
       </div>
-      <h3>{post.title}</h3>
-      <figcaption>{post.description}</figcaption>
+      <h3>
+        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+      </h3>
+      <figcaption className='truncate-2'>{post.description}</figcaption>
     </PostFigure>
   );
 };
 
 const PostsGallery = ({ posts }) => {
   return (
-    <section className='recent'>
+    <section>
       <h2>Recent Posts</h2>
-      <GridWrapper columns={2} gap={2}>
+      <GridWrapper columns={3} gap={3}>
         {posts.map((post) => (
           <PostCard post={post} key={post.id} />
         ))}

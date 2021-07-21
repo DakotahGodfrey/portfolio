@@ -9,19 +9,13 @@ const GridWrapper = styled.div`
   );
   grid-gap: ${(props) => props.gap ?? 1.6}rem;
 `;
-
 const Container = styled.main`
-  max-width: 80rem;
+  max-width: 100rem;
   background: ${getFromTheme('secondary')};
   margin-inline: auto;
+  padding-bottom: 1.6rem;
   section {
     padding: 1rem 3rem;
-    h2 {
-      font-size: ${getFromTheme('headingMD')};
-    }
-    p {
-      font-size: ${getFromTheme('headingSM')};
-    }
   }
 `;
 
@@ -29,7 +23,7 @@ const Footer = styled.footer`
   display: flex;
   justify-content: flex-end;
   border-top: 2px solid ${getFromTheme('accent')};
-  max-width: 80rem;
+  max-width: 100rem;
   margin-inline: auto;
   align-items: center;
   font-size: 1.4rem;

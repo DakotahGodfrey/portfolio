@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import { getFromTheme } from '../../styles/themes';
 
 const IntroWrapper = styled.section`
-  max-width: 80rem;
   margin-inline: auto;
   background: ${getFromTheme('secondary')};
   .hero-content {
@@ -21,7 +20,7 @@ const IntroWrapper = styled.section`
         margin-bottom: 1.6rem;
       }
       p {
-        font-size: ${getFromTheme('headingSM')};
+        /* font-size: ${getFromTheme('headingSM')}; */
         margin-top: 1rem;
       }
       a {

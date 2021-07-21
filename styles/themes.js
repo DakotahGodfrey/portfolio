@@ -2,7 +2,7 @@ const defaultTheme = {
   primary: '#121212',
   secondary: '#fff',
   accent: '#F20530',
-  muted: '#7f7f7f',
+  muted: '#3d3737',
   BG: '#f2f2f2',
   link: '#1F51FF',
   body: '1.6rem',
@@ -15,7 +15,7 @@ const darkTheme = {
   ...defaultTheme,
   primary: '#f4f4f4',
   secondary: '#121212',
-  muted: '#7f7f7f',
+  muted: '#d1caca',
   BG: '#222',
   link: '#87CEEB',
 };

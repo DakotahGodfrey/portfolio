@@ -8,24 +8,30 @@ const GlobalStyles = createGlobalStyle`
     a{
       color: ${getFromTheme('link')};
     }
-    .cta{
-      padding: 1rem 3rem;
-      display: flex;
+    p{
       font-size: ${getFromTheme('headingSM')};
-      justify-content: space-evenly;
-    a{
-      display: block;
-      padding: .25rem 1rem;
-      transition: all 0.5s ease-out;
-      color: ${getFromTheme('primary')};
-      border-bottom: 2px solid ${getFromTheme('accent')};
-      &:hover{
-        transform: scale(1.1);
+    }
+    section{
+      h2{
+        margin-bottom: 2.4rem;
+        font-size: ${getFromTheme('headingLG')};
       }
-
     }
-    
+    .truncate{
+    display: -webkit-box;
+    -webkit-line-clamp:  1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 1;
     }
+    .truncate-2{
+      display: -webkit-box;
+      -webkit-line-clamp:  2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-clamp: 2;
+    }
+  
   `;
 
 export default GlobalStyles;
