@@ -1,5 +1,6 @@
 import Navbar from '../components/layout/Navbar';
 import '/styles/reset.scss';
+import 'prismjs/themes/prism-okaidia.css';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../styles/GlobalStyles';
 import { defaultTheme, darkTheme, getFromTheme } from '../styles/themes';

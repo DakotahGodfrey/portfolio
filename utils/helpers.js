@@ -1,8 +1,8 @@
 import { BLOG_URL, GITHUB_URL } from '../api/api';
 
 const getRecentPostExcerpts = async (limit = 3) => {
-  const recentPostQuery = `
-    query {
+  const blogQuery = `
+    query Articles {
       articles(limit: ${limit}, sort:"published_at:desc"){
         title
         description
@@ -10,19 +10,19 @@ const getRecentPostExcerpts = async (limit = 3) => {
         image{
           url
         }
-        category
+
       }
+    }
   `;
-  const response = await fetch(BLOG_URL, {
+
+  const res = await fetch(BLOG_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      query: recentPostQuery,
-    }),
+    body: JSON.stringify({ query: blogQuery }),
   });
-  const posts = await response.json();
+  const posts = await res.json();
   return posts?.data?.articles;
 };
 
@@ -108,23 +108,25 @@ const getPostExcerptsAndCategories = async (limit = 10) => {
 const getPinnedRepos = async () => {
   const pinnedReposQuery = `
     query {
-     user(login: "dakotahgodfrey") {
-       pinnedItems(first: 3, types: [REPOSITORY]){
-         edges {
-           node {
-             ... on Repository {
-              name
-              description
-              url
-              primaryLanguage{
-                name
-                color
-              }
+    user(login:"dakotahgodfrey") {
+        pinnedItems(first: 3, types: [REPOSITORY, GIST]) {
+            totalCount
+            edges {
+                node {
+                    ... on Repository {
+                    name
+                    url
+                    description
+                    primaryLanguage{
+                      name
+                      color
+                      }
+                    }
+                }
             }
-          }
         }
-      }
     }
+}
   `;
   const res = await fetch(`${GITHUB_URL}`, {
     method: 'POST',

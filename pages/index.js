@@ -51,7 +51,7 @@ export default function Home({ posts, repos }) {
 
 export async function getStaticProps() {
   const repos = await getPinnedRepos();
-  const posts = await getRecentPostExcerpts();
+  const posts = await getRecentPostExcerpts(3);
   return {
     props: {
       repos,

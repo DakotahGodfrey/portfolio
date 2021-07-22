@@ -40,6 +40,27 @@ const Container = styled.main`
       color: ${getFromTheme('muted')};
     }
   }
+  .post-content {
+    p {
+      margin: 1.6rem auto;
+      max-width: 76rem;
+    }
+  }
+  pre.prism-code {
+    font-size: 1.6rem;
+    border-radius: 10px;
+    border: none;
+    background: ${getFromTheme('codeBG')};
+    max-width: 76rem;
+    margin: 2rem auto;
+
+    code {
+      font-family: 'JetBrains Mono', monospace !important;
+    }
+    .token.function {
+      color: orange;
+    }
+  }
 `;
 
 const Footer = styled.footer`

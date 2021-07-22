@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container } from '../../components/layout/Lib';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import { getAllPostSlugs, getPostBySlug } from '../../utils/helpers';
 import Link from 'next/link';
 import Image from 'next/image';
+import Head from 'next/head';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-jsx.min';
+import 'prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js';
 
 const CustomLink = ({ href, children }) => {
   return href.startsWith('/') || href.startsWith('#') || href === '' ? (
@@ -35,29 +39,39 @@ const CustomImage = ({ src, alt, width, height, title }) => {
   );
 };
 
+const CustomCode = ({ lang, type, value, children }) => {
+  return <pre className='prism-code'>{children}</pre>;
+};
+
 const components = {
   a: CustomLink,
   img: CustomImage,
+  pre: CustomCode,
 };
 
 export default function Post({ postData, postContent }) {
-  console.log(postData);
   const {
     title,
     image: { url },
   } = postData;
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
   return (
-    <Container>
-      <div className='post-meta'>
-        <h1 className='post-title'>{title}</h1>
-        <div className='image-wrapper'>
-          <Image src={url} alt={title} objectFit='cover' layout='fill' />
+    <>
+      <Head></Head>
+      <Container>
+        <div className='post-meta'>
+          <h1 className='post-title'>{title}</h1>
+          <div className='image-wrapper'>
+            <Image src={url} alt={title} objectFit='cover' layout='fill' />
+          </div>
         </div>
-      </div>
-      <section>
-        <MDXRemote {...postContent} components={components} />
-      </section>
-    </Container>
+        <section className='post-content'>
+          <MDXRemote {...postContent} components={components} />
+        </section>
+      </Container>
+    </>
   );
 }
 

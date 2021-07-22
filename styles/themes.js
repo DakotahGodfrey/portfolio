@@ -4,6 +4,7 @@ const defaultTheme = {
   accent: '#F20530',
   muted: '#3d3737',
   BG: '#f2f2f2',
+  codeBG: '#121212',
   link: '#1F51FF',
   body: '1.6rem',
   headingXL: '3.6rem',
@@ -18,6 +19,7 @@ const darkTheme = {
   secondary: '#121212',
   muted: '#d1caca',
   BG: '#222',
+  codeBG: '#222',
   link: '#87CEEB',
 };
 const getFromTheme = (property) => (props) => {
