@@ -6,7 +6,7 @@ import { Container, Footer } from '../components/layout/Lib';
 import SocialLinks from '../components/SocialLinks';
 import { socialLinks } from '../utils/data';
 import PostsGallery from '../components/layout/PostsGallery';
-import { getPinnedRepos, getRecentBlogPostIntros } from '../utils/helpers';
+import { getPinnedRepos, getRecentPostExcerpts } from '../utils/helpers';
 import RepoGallery from '../components/layout/RepoGallery';
 
 export default function Home({ posts, repos }) {
@@ -45,17 +45,13 @@ export default function Home({ posts, repos }) {
         <PostsGallery posts={posts} />
         <RepoGallery repos={repos} />
       </Container>
-
-      <Footer>
-        <SocialLinks links={socialLinks} />| &copy; dakotah_dev 2021
-      </Footer>
     </div>
   );
 }
 
 export async function getStaticProps() {
   const repos = await getPinnedRepos();
-  const posts = await getRecentBlogPostIntros();
+  const posts = await getRecentPostExcerpts();
   return {
     props: {
       repos,

@@ -14,8 +14,31 @@ const Container = styled.main`
   background: ${getFromTheme('secondary')};
   margin-inline: auto;
   padding-bottom: 1.6rem;
+  padding: 1rem 3rem;
   section {
     padding: 1rem 3rem;
+  }
+  .post-title {
+    font-size: ${getFromTheme('headingXL')};
+    text-align: center;
+  }
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    margin: 2rem auto;
+    border-radius: 5px;
+    img {
+      border-radius: 10px;
+    }
+  }
+  .post-figure {
+    padding: 2rem;
+    figCaption {
+      text-align: center;
+      font-size: 1.4rem;
+      color: ${getFromTheme('muted')};
+    }
   }
 `;
 

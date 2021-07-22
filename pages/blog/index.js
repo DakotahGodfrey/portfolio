@@ -1,19 +1,21 @@
 import React from 'react';
 import { Container } from '../../components/layout/Lib';
-import { getRecentBlogPostIntros } from '../../utils/helpers';
+import { getPostExcerptsAndCategories } from '../../utils/helpers';
 
 export default function Blog({ posts }) {
   return (
     <>
       <Container>
-        <h1>Some Text</h1>
+        <form className='blog-search'>
+          <input type='search' placeholder='Search my blogposts' />
+        </form>
       </Container>
     </>
   );
 }
 
 export async function getStaticProps() {
-  const posts = await getRecentBlogPostIntros(6);
+  const posts = await getPostExcerptsAndCategories(9);
   return {
     props: {
       posts,

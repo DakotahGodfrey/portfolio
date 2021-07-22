@@ -13,7 +13,6 @@ const IntroWrapper = styled.section`
     align-items: center;
     grid-column: 1 / span 2;
     grid-template-columns: 2fr max-content;
-    padding: 1rem 3rem;
     .intro {
       h1 {
         font-size: ${getFromTheme('headingLG')};

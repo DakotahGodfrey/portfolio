@@ -6,6 +6,7 @@ const defaultTheme = {
   BG: '#f2f2f2',
   link: '#1F51FF',
   body: '1.6rem',
+  headingXL: '3.6rem',
   headingLG: '2.8rem',
   headingMD: '2.4rem',
   headingSM: '2.0rem',
