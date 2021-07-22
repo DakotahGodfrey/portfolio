@@ -28,9 +28,7 @@ export default function Home({ posts, repos }) {
             <a href='https://www.a11yproject.com/'>
               <abbr title='The Ally Project for web accessibility'>#a11y</abbr>
             </a>{' '}
-            and building things that make the world a better place. Typically
-            you can find me building with React or diving into new course
-            material.
+            and building things that make the world a better place.
           </p>
           <p>
             Welcome to my site! Here you can find some of the things I&#39;ve
