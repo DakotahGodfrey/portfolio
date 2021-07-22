@@ -78,22 +78,26 @@ const getPostBySlug = async (slug) => {
   return post?.data?.articles[0];
 };
 
-const getPostExcerptsAndCategories = async (limit = 10) => {
+const getPostExcerptsAndCategories = async () => {
   const blogQuery = `
     query {
-      articles(limit: ${limit}, sort:"published_at:desc"){
+      articles( sort:"published_at:desc"){
         title
         description
         slug
+        category{
+          title
+        }
         image{
           url
         }
-        category
       }
       categories{
         title
+      }
     }
   `;
+
   const res = await fetch(BLOG_URL, {
     method: 'POST',
     headers: {
@@ -102,7 +106,9 @@ const getPostExcerptsAndCategories = async (limit = 10) => {
     body: JSON.stringify({ query: blogQuery }),
   });
   const posts = await res.json();
-  return posts?.data?.articles;
+  const articles = posts.data.articles ?? [];
+  const categories = posts.data.categories ?? [];
+  return { articles, categories };
 };
 
 const getPinnedRepos = async () => {

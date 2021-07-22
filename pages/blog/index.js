@@ -3,6 +3,7 @@ import { Container } from '../../components/layout/Lib';
 import { getPostExcerptsAndCategories } from '../../utils/helpers';
 
 export default function Blog({ posts }) {
+  console.log(posts);
   return (
     <>
       <Container>
@@ -15,7 +16,7 @@ export default function Blog({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getPostExcerptsAndCategories(9);
+  const posts = await getPostExcerptsAndCategories();
   return {
     props: {
       posts,
