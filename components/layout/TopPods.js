@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { GridWrapper } from '../../components/layout/Lib';
+import { GridWrapper } from './Lib';
 
 const TopPods = ({ podcasts }) => {
   return (
