@@ -15,6 +15,7 @@ const Container = styled.main`
   margin-inline: auto;
   padding-bottom: 1.6rem;
   padding: 1rem 3rem;
+  min-height: 80vh;
   h1 {
     font-size: ${getFromTheme('headingXL')};
   }
@@ -54,4 +55,44 @@ const Footer = styled.footer`
   }
 `;
 
-export { GridWrapper, Container, Footer };
+const CategoryButton = styled.button.attrs((props) => ({
+  onClick: props.onClick,
+}))`
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  color: #fff;
+  background: ${(props) => props.color};
+  font-weight: 700;
+  height: 4.4rem;
+  margin-right: 0.5rem;
+`;
+
+const SearchForm = styled.form.attrs((props) => ({
+  onSubmit: props.onSubmit,
+}))`
+  padding: 1rem 3rem;
+  max-width: 80rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-inline: auto;
+  justify-content: center;
+  input {
+    width: 100%;
+    padding: 1rem;
+    font-size: ${getFromTheme('body')};
+    border-radius: 50px;
+    border: 2px solid ${getFromTheme('accent')};
+    padding-left: 2rem;
+  }
+  .categories {
+    padding: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: ${getFromTheme('body')};
+  }
+`;
+
+export { GridWrapper, Container, Footer, CategoryButton, SearchForm };
