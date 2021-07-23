@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React, { useState } from 'react';
 import { getFromTheme } from '../styles/themes';
 import { CategoryButton, SearchForm } from './layout/Lib';
-import { BLOG_URL, GITHUB_URL } from '../api/api';
+import { BLOG_URL, GITHUB_URL } from '../utils/api';
 
 const BlogSearchBar = ({ categories, handleSubmit, setTerm, term }) => {
   return (

@@ -1,4 +1,4 @@
-import { BLOG_URL, GITHUB_URL } from '../api/api';
+import { BLOG_URL, GITHUB_URL } from './api';
 
 const getRecentPostExcerpts = async (limit = 3) => {
   const blogQuery = `
