@@ -6,7 +6,7 @@ import {
   queryBlogPostsByTitleAndCategory,
 } from '../../utils/helpers';
 import { getFromTheme } from '../../styles/themes';
-import BlogSearchBar from './BlogSearchBar';
+import BlogSearchBar from '../../components/BlogSearchBar';
 import PostsGallery from '../../components/layout/PostsGallery';
 import useDebounce from '../../utils/hooks/useDebounce';
 

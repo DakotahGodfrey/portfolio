@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
-import { getFromTheme } from '../../styles/themes';
-import { CategoryButton, SearchForm } from '../../components/layout/Lib';
-import { BLOG_URL, GITHUB_URL } from '../../api/api';
+import { getFromTheme } from '../styles/themes';
+import { CategoryButton, SearchForm } from './layout/Lib';
+import { BLOG_URL, GITHUB_URL } from '../api/api';
 
 const BlogSearchBar = ({ categories, handleSubmit, setTerm, term }) => {
   return (
