@@ -82,8 +82,12 @@ const SearchForm = styled.form.attrs((props) => ({
     padding: 1rem;
     font-size: ${getFromTheme('body')};
     border-radius: 50px;
-    border: 2px solid ${getFromTheme('accent')};
+    background: ${getFromTheme('BG')};
+    border: 2px solid #d3d3d3;
     padding-left: 2rem;
+    &::placeholder {
+      color: ${getFromTheme('primary')};
+    }
   }
   .categories {
     padding: 2rem;
