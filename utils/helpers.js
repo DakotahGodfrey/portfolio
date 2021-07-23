@@ -78,22 +78,27 @@ const getPostBySlug = async (slug) => {
   return post?.data?.articles[0];
 };
 
-const getPostExcerptsAndCategories = async (limit = 10) => {
+const getPostExcerptsAndCategories = async () => {
   const blogQuery = `
     query {
-      articles(limit: ${limit}, sort:"published_at:desc"){
+      articles( sort:"published_at:desc"){
         title
         description
         slug
+        category{
+          title
+        }
         image{
           url
         }
-        category
       }
       categories{
         title
+        color
+      }
     }
   `;
+
   const res = await fetch(BLOG_URL, {
     method: 'POST',
     headers: {
@@ -102,7 +107,58 @@ const getPostExcerptsAndCategories = async (limit = 10) => {
     body: JSON.stringify({ query: blogQuery }),
   });
   const posts = await res.json();
-  return posts?.data?.articles;
+  const articles = posts.data.articles ?? [];
+  const categories = posts.data.categories ?? [];
+  return { articles, categories };
+};
+
+const queryBlogPostsByTitleAndCategory = async (query) => {
+  const queryString = `
+    query {
+     byTitle: articles(where: {title_contains:  "${query}"}){
+        title
+        description
+        slug
+        category{
+            title
+            color
+        }
+        image{
+          url
+        }
+      }
+      byCategory: articles(where: {category: {title_contains: "${query}"}}){
+          title
+        description
+        slug
+        category{
+            title
+            color
+        }
+        image{
+          url
+        }
+      }
+    }
+  `;
+
+  const response = await fetch(BLOG_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query: queryString }),
+  });
+
+  const posts = await response.json();
+  const { byTitle, byCategory } = posts.data;
+  const merged = [...byTitle, ...byCategory];
+
+  const filteredArray = merged.filter(
+    (value, index, arr) =>
+      arr.findIndex((article) => article.slug === value.slug) === index
+  );
+  return filteredArray;
 };
 
 const getPinnedRepos = async () => {
@@ -142,10 +198,21 @@ const getPinnedRepos = async () => {
   return reposArr;
 };
 
+const generatePlaceHolders = (size) => {
+  let placeholders = new Array(size).fill({
+    title: 'Loading',
+    description:
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam, maiores.',
+  });
+  return placeholders;
+};
+
 export {
   getRecentPostExcerpts,
   getAllPostSlugs,
   getPostBySlug,
   getPostExcerptsAndCategories,
   getPinnedRepos,
+  queryBlogPostsByTitleAndCategory,
+  generatePlaceHolders,
 };

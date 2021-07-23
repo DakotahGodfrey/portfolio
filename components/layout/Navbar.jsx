@@ -30,7 +30,10 @@ const SiteHeader = styled.header`
       display: block;
       color: inherit;
       transition: all 0.4s ease-out;
-      padding: 0 0.75rem
+      padding: 0 0.75rem;
+      &:hover {
+        text-decoration: none;
+      }
     }
     li {
       border-bottom: 2px solid transparent;

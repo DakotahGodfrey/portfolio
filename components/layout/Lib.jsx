@@ -15,51 +15,12 @@ const Container = styled.main`
   margin-inline: auto;
   padding-bottom: 1.6rem;
   padding: 1rem 3rem;
+  min-height: 80vh;
+  h1 {
+    font-size: ${getFromTheme('headingXL')};
+  }
   section {
     padding: 1rem 3rem;
-  }
-  .post-title {
-    font-size: ${getFromTheme('headingXL')};
-    text-align: center;
-  }
-  .image-wrapper {
-    position: relative;
-    width: 100%;
-    height: 45vh;
-    margin: 2rem auto;
-    border-radius: 5px;
-    img {
-      border-radius: 10px;
-    }
-  }
-  .post-figure {
-    padding: 2rem;
-    figCaption {
-      text-align: center;
-      font-size: 1.4rem;
-      color: ${getFromTheme('muted')};
-    }
-  }
-  .post-content {
-    p {
-      margin: 1.6rem auto;
-      max-width: 76rem;
-    }
-  }
-  pre.prism-code {
-    font-size: 1.6rem;
-    border-radius: 10px;
-    border: none;
-    background: ${getFromTheme('codeBG')};
-    max-width: 76rem;
-    margin: 2rem auto;
-
-    code {
-      font-family: 'JetBrains Mono', monospace !important;
-    }
-    .token.function {
-      color: orange;
-    }
   }
 `;
 
@@ -94,4 +55,44 @@ const Footer = styled.footer`
   }
 `;
 
-export { GridWrapper, Container, Footer };
+const CategoryButton = styled.button.attrs((props) => ({
+  onClick: props.onClick,
+}))`
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  color: #fff;
+  background: ${(props) => props.color};
+  font-weight: 700;
+  height: 4.4rem;
+  margin-right: 0.5rem;
+`;
+
+const SearchForm = styled.form.attrs((props) => ({
+  onSubmit: props.onSubmit,
+}))`
+  padding: 1rem 3rem;
+  max-width: 80rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-inline: auto;
+  justify-content: center;
+  input {
+    width: 100%;
+    padding: 1rem;
+    font-size: ${getFromTheme('body')};
+    border-radius: 50px;
+    border: 2px solid ${getFromTheme('accent')};
+    padding-left: 2rem;
+  }
+  .categories {
+    padding: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: ${getFromTheme('body')};
+  }
+`;
+
+export { GridWrapper, Container, Footer, CategoryButton, SearchForm };

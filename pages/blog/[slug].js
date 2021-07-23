@@ -39,14 +39,17 @@ const CustomImage = ({ src, alt, width, height, title }) => {
   );
 };
 
-const CustomCode = ({ lang, type, value, children }) => {
-  return <pre className='prism-code'>{children}</pre>;
-};
+const CustomCode = ({ lang, type, value, children }) => (
+  <pre className='prism-code'>{children}</pre>
+);
+
+const CustomHr = () => <div className='hr'></div>;
 
 const components = {
   a: CustomLink,
   img: CustomImage,
   pre: CustomCode,
+  hr: CustomHr,
 };
 
 export default function Post({ postData, postContent }) {
