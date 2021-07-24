@@ -4,8 +4,6 @@ import { Container, GridWrapper } from '../../components/layout/Lib';
 import { getProjects } from '../../utils/helpers';
 import { GoRepo, GoBrowser } from 'react-icons/go';
 export default function Projects({ projects }) {
-  console.log(projects);
-
   return (
     <>
       <Head></Head>
