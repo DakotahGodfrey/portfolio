@@ -79,11 +79,12 @@ const SearchForm = styled.form.attrs((props) => ({
   justify-content: center;
   input {
     width: 100%;
-    padding: 1rem;
+    /* padding: 1rem; */
     font-size: ${getFromTheme('body')};
     border-radius: 50px;
-    border: 2px solid ${getFromTheme('accent')};
-    padding-left: 2rem;
+    &::placeholder {
+      color: ${getFromTheme('primary')};
+    }
   }
   .categories {
     padding: 2rem;

@@ -11,7 +11,7 @@ const BlogSearchBar = ({ categories, handleSubmit, setTerm, term }) => {
         value={term}
         onChange={(e) => setTerm(e.target.value)}
         type='search'
-        placeholder='Search blogposts'
+        placeholder='Search blogposts...'
       />
       <div className='categories'>
         {categories.map((category) => (

@@ -179,7 +179,53 @@ const GlobalStyles = createGlobalStyle`
         border-radius: 10px;
       }
     }
-
+      .contact-lead{
+        max-width: 70ch;
+      }
+    .contact-grid{
+      align-items: flex-start;
+      color: ${getFromTheme('primary')};
+      h2{
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid ${getFromTheme('primary')};
+      }
+    }
+    .contact-form{
+      label{
+        display: block;
+        font-size: ${getFromTheme('headingSM')}
+      }
+      
+    }
+    textarea{
+      height: 12.5rem;
+      overflow-y: scroll;
+    }
+    .control-group{
+      padding-bottom:0.8rem;
+    }
+    }
+    .contact-links{
+      font-size: ${getFromTheme('headingSM')};
+      li{
+        margin-bottom: 3.8rem;
+    }
+    }
+    input, textarea{
+        width: 80%;
+        font-size: ${getFromTheme('body')};
+        background: ${getFromTheme('BG')};
+        border: none;
+        padding: 1rem;
+        border-radius: 1rem;
+        color: ${getFromTheme('primary')};
+        &:focus{
+          outline:none;
+          box-shadow: 0 0 0 2px #88b8ff;
+          background: ${getFromTheme('secondary')};
+        }
+        resize: none
+    }
   `;
 
 export default GlobalStyles;

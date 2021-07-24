@@ -58,7 +58,7 @@ const PostsGallery = ({ posts, isResults, isSearching, results }) => {
   return (
     <section>
       <h2>
-        {isResults ? 'Results' : isSearching ? 'Searching' : 'Latest Posts'}{' '}
+        {isResults ? 'Results: ' : isSearching ? 'Searching' : 'Latest Posts'}{' '}
         {results && <span role='alert'>{results}</span>}
       </h2>
       <GridWrapper columns={3} gap={3}>
