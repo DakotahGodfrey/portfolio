@@ -18,6 +18,7 @@ const Container = styled.main`
   min-height: 80vh;
   h1 {
     font-size: ${getFromTheme('headingXL')};
+    margin-bottom: 1rem;
   }
   section {
     padding: 1rem 3rem;

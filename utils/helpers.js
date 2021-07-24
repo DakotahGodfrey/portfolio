@@ -198,6 +198,31 @@ const getPinnedRepos = async () => {
   return reposArr;
 };
 
+const getProjects = async () => {
+  const projectsQuery = `
+    query Projects {
+      projects{
+        title
+        description
+        stack
+        url
+        repo
+        cover{
+          url
+        }
+      }
+    }`;
+  const res = await fetch(BLOG_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query: projectsQuery }),
+  });
+  const projects = await res.json();
+  return projects.data.projects;
+};
+
 const generatePlaceHolders = (size) => {
   let placeholders = new Array(size).fill({
     title: 'Loading',
@@ -211,6 +236,7 @@ export {
   getRecentPostExcerpts,
   getAllPostSlugs,
   getPostBySlug,
+  getProjects,
   getPostExcerptsAndCategories,
   getPinnedRepos,
   queryBlogPostsByTitleAndCategory,

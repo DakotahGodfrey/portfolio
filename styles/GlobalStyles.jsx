@@ -226,6 +226,47 @@ const GlobalStyles = createGlobalStyle`
         }
         resize: none
     }
+    .project{
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      figcaption{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .image-wrapper{
+        height: 66vh
+      }
+      h2{
+        font-size: ${getFromTheme('headingLG')};
+        padding-bottom: 2rem;
+      }
+      .stack{
+        padding: 1rem 0;
+        width: 90%;
+        border-top: 1px solid ${getFromTheme('accent')};
+      }
+      .project-links{
+        font-size: ${getFromTheme('body')};
+        display: grid;
+        padding: 1rem;
+        grid-template-columns: 1fr 1fr;
+        li{
+          display: flex;
+          align-items: center;
+          svg{
+            height: 2.8rem;
+            width: 2.8rem;
+            margin-right: 1.2rem;
+          } 
+        a{
+          font-weight: 700;
+          font-size: ${getFromTheme('headingSM')};
+          font-family: "Nunito Sans", sans-serif;
+        }
+        }
+      }
+    }
   `;
 
 export default GlobalStyles;
