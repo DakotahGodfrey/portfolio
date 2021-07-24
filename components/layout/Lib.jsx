@@ -79,12 +79,9 @@ const SearchForm = styled.form.attrs((props) => ({
   justify-content: center;
   input {
     width: 100%;
-    padding: 1rem;
+    /* padding: 1rem; */
     font-size: ${getFromTheme('body')};
     border-radius: 50px;
-    background: ${getFromTheme('BG')};
-    border: 2px solid #d3d3d3;
-    padding-left: 2rem;
     &::placeholder {
       color: ${getFromTheme('primary')};
     }
