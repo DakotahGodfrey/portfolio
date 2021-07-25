@@ -14,7 +14,7 @@ const Container = styled.main`
   background: ${getFromTheme('secondary')};
   margin-inline: auto;
   padding-bottom: 1.6rem;
-  padding: 1rem 3rem;
+  ${(props) => !props.isMobile && 'padding: 1rem 3rem;'}
   min-height: 80vh;
   h1 {
     font-size: ${getFromTheme('headingXL')};
@@ -114,6 +114,7 @@ const SiteHeader = styled.header`
     grid-column: 1;
   ul {
     display: inherit;
+    font-size: ${getFromTheme('headingMD')};
     padding-bottom: 0.25rem;
     border-bottom: 2px solid ${getFromTheme('muted')};
     a {
@@ -167,7 +168,7 @@ const SiteHeader = styled.header`
 const MenuButton = styled.button.attrs((props) => ({
   children: props.children,
 }))`
-  font-size: ${getFromTheme('headingLG')};
+  font-size: ${getFromTheme('headingMD')};
   svg {
     height: 4.4rem;
     width: 4.4rem;

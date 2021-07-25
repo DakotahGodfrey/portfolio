@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { GridWrapper } from './Lib';
 import { getFromTheme } from '../../styles/themes';
 import { VscRepo } from 'react-icons/vsc';
+import useViewport from '../../utils/hooks/useViewport';
+import mq from '../../utils/breakpoints';
 
 const RepoCard = styled.figure`
   background: ${getFromTheme('BG')};
@@ -48,10 +50,13 @@ const RepoCard = styled.figure`
 `;
 
 const RepoGallery = ({ repos }) => {
+  const { width } = useViewport();
+  const isMobile = width <= mq.xs;
+  const isTablet = width <= mq.md;
   return (
     <section>
       <h2>Featured Repos</h2>
-      <GridWrapper columns={3}>
+      <GridWrapper columns={isMobile ? 1 : isTablet ? 2 : 3}>
         {repos.map((repo) => (
           <RepoCard key={repo.name}>
             <div className='repo-url'>

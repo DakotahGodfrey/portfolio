@@ -5,6 +5,8 @@ import Image from 'next/image';
 import profilePicture from '/public/images/headshot.jpg';
 import PropTypes from 'prop-types';
 import { getFromTheme } from '../../styles/themes';
+import useViewport from '../../utils/hooks/useViewport';
+import mq from '../../utils/breakpoints';
 
 const IntroWrapper = styled.section`
   margin-inline: auto;
@@ -12,8 +14,11 @@ const IntroWrapper = styled.section`
   .hero-content {
     align-items: center;
     grid-column: 1 / span 2;
-    grid-template-columns: 2fr max-content;
+    grid-template-columns: ${(props) =>
+      props.isMobile ? '1fr' : '2fr max-content'};
     .intro {
+      text-align: ${(props) => props.isMobile && 'center'};
+      text-align: ${(props) => props.isNarrow && 'left'};
       h1 {
         font-size: ${getFromTheme('headingLG')};
         margin-bottom: 1.6rem;
@@ -30,6 +35,8 @@ const IntroWrapper = styled.section`
       padding: 1rem;
       border-radius: 100%;
       align-self: flex-start;
+      width: max-content;
+      margin-inline: auto;
       img {
         border-radius: 100%;
       }
@@ -49,11 +56,15 @@ const image = (
 );
 
 const Introduction = ({ children, hasImage }) => {
+  const { width } = useViewport();
+  const isMobile = width <= mq.md;
+  const isNarrow = width <= mq.sm;
   return (
-    <IntroWrapper>
+    <IntroWrapper isMobile={isMobile} isNarrow={isNarrow}>
       <GridWrapper columns={2} className='hero-content'>
+        {hasImage && isMobile && image}
         <div className='intro'>{children}</div>
-        {hasImage && image}
+        {hasImage && !isMobile && image}
       </GridWrapper>
     </IntroWrapper>
   );
