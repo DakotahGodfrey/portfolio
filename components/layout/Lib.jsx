@@ -23,6 +23,49 @@ const Container = styled.main`
   section {
     padding: 1rem 3rem;
   }
+  .carousel {
+    display: flex;
+    overflow-x: scroll;
+    figure {
+      flex-shrink: 0;
+      width: 25rem;
+      margin-right: 1.6rem;
+    }
+  }
+  .top-pods {
+    margin-top: 2.8rem;
+    figure {
+      display: grid;
+      grid-template-columns: ${(props) =>
+        props.isMobile ? 1 : 'max-content 1fr'};
+      grid-gap: 2rem;
+
+      iframe {
+        align-self: center;
+      }
+      figcaption {
+        align-self: flex-start;
+        h3 {
+          font-size: ${getFromTheme('headingSM')};
+          border-bottom: 1px solid ${getFromTheme('accent')};
+        }
+        p {
+          max-width: 95%;
+          /* margin-inline: auto; */
+          font-size: ${getFromTheme('body')};
+          padding-top: 2rem;
+        }
+      }
+    }
+    .post-figure {
+      padding: 2rem;
+      figCaption {
+        text-align: center;
+        font-size: 1.4rem;
+        color: ${getFromTheme('muted')};
+      }
+    }
+  }
 `;
 
 const Footer = styled.footer`
@@ -112,7 +155,8 @@ const SiteHeader = styled.header`
     display: flex;
     align-items: center;
     grid-column: 1;
-  ul {
+
+  .full-nav {
     display: inherit;
     font-size: ${getFromTheme('headingMD')};
     padding-bottom: 0.25rem;
@@ -125,6 +169,9 @@ const SiteHeader = styled.header`
       &:hover {
         text-decoration: none;
       }
+    }
+    ul{
+      display: flex;
     }
     li {
       border-bottom: 2px solid transparent;
@@ -142,6 +189,7 @@ const SiteHeader = styled.header`
         }
       }
     }
+  
   }
   button {
     grid-column: 2;
@@ -163,6 +211,41 @@ const SiteHeader = styled.header`
       }
     }
   }
+  .mobile-menu{
+    grid-column: 2;
+    width: 20rem;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: ${getFromTheme('BG')};
+    z-index: 1;
+    padding-left: 2rem;
+    ul{
+      width: 100%;
+      position: absolute;
+      top: 6rem;
+      li{
+        margin-bottom: 1.6rem;
+        a{
+          color: ${getFromTheme('primary')};
+        }
+      }
+    }
+    button{
+      padding: 0;  
+    }
+    .close{
+      height: 4.4rem;
+      width: 4.4rem;
+      svg{
+        color: ${getFromTheme('accent')};
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
+  }
+  
 `;
 
 const MenuButton = styled.button.attrs((props) => ({

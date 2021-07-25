@@ -7,11 +7,16 @@ import { getPinnedRepos } from '../../utils/helpers';
 import Bio from '../../components/layout/Bio';
 import TopPods from '../../components/layout/TopPods';
 import { podcasts } from '../../utils/data';
+import useViewport from '../../utils/hooks/useViewport';
+import mq from '../../utils/breakpoints';
 export default function About({ repos }) {
+  const { width } = useViewport();
+  const isMobile = width < mq.sm;
+
   return (
     <>
       <Head></Head>
-      <Container>
+      <Container isMobile={isMobile}>
         <h1 className='about-title'>
           Hey! I'm Dakotah <span className='wave'>👋</span>
         </h1>
@@ -21,7 +26,7 @@ export default function About({ repos }) {
           <h2>
             <span aria-hidden='true'>🎧</span> What I'm Listening To
           </h2>
-          <TopPods podcasts={podcasts} />
+          <TopPods podcasts={podcasts} isMobile={isMobile} />
         </section>
         <section className='courses'>
           <h2>
