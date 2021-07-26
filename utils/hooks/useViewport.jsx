@@ -3,12 +3,16 @@ import { useState, useEffect } from 'react';
 const isRenderingOnServer = typeof window === 'undefined';
 
 const getInitialState = () => {
-  return isRenderingOnServer ? 0 : window.innerWidth;
+  if (!isRenderingOnServer) {
+    return window.innerWidth;
+  }
+  return;
 };
 function useViewport() {
   const [width, setWidth] = useState(getInitialState());
 
   useEffect(() => {
+    setWidth(getInitialState());
     const handleWindowResize = () => {
       setWidth(window.innerWidth);
     };

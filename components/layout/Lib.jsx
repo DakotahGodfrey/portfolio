@@ -228,23 +228,29 @@ const SiteHeader = styled.header`
       position: absolute;
       top: 6rem;
       li{
-        margin-bottom: 1.6rem;
+        margin-bottom: 1rem;
+        height: 4.4rem;
         a{
           color: ${getFromTheme('primary')};
         }
       }
     }
     button{
-      padding: 0;  
+      padding: 0;
+     
     }
-    .close{
+    button.close{
       height: 4.4rem;
+       position: fixed;
+      top: 0;
+      right: 0;
       width: 4.4rem;
       svg{
         color: ${getFromTheme('accent')};
         width: 2.4rem;
         height: 2.4rem;
       }
+    }
     }
   }
   
@@ -257,11 +263,6 @@ const MenuButton = styled.button.attrs((props) => ({
   svg {
     height: 4.4rem;
     width: 4.4rem;
-    path{
-      color: #e6af5d
-    }
-    path:last-child {
-      color: ${getFromTheme('accent')};
   }
 `;
 
