@@ -22,7 +22,9 @@ a {
     text-decoration: underline;
   }
 }
-
+input {
+  font-size: 1.6rem;
+}
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button,
 input[type='search']::-webkit-search-cancel-button,
@@ -40,6 +42,9 @@ button {
 
 p {
   line-height: 1.8;
+}
+table {
+  overflow: scroll;
 }
 
 h1,

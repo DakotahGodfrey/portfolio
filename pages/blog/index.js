@@ -9,6 +9,8 @@ import { getFromTheme } from '../../styles/themes';
 import BlogSearchBar from '../../components/BlogSearchBar';
 import PostsGallery from '../../components/layout/PostsGallery';
 import useDebounce from '../../utils/hooks/useDebounce';
+import useViewport from '../../utils/hooks/useViewport';
+import mq from '../../utils/breakpoints';
 
 export default function Blog({ articles, categories }) {
   const [posts, setPosts] = useState([]);
@@ -16,6 +18,8 @@ export default function Blog({ articles, categories }) {
   const [term, setTerm] = useState('');
   const [searching, setSearching] = useState(false);
   const debouncedTerm = useDebounce(200, term);
+  const { width } = useViewport();
+  const isMobile = width <= mq.sm;
 
   useEffect(() => {
     if (debouncedTerm) {
@@ -45,7 +49,7 @@ export default function Blog({ articles, categories }) {
 
   return (
     <>
-      <Container>
+      <Container isMobile={isMobile}>
         <BlogSearchBar
           categories={categories}
           setTerm={setTerm}

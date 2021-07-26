@@ -26,6 +26,7 @@ const Container = styled.main`
   .carousel {
     display: flex;
     overflow-x: scroll;
+    justify-content: space-between;
     figure {
       flex-shrink: 0;
       width: 25rem;
@@ -135,6 +136,7 @@ const SearchForm = styled.form.attrs((props) => ({
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     font-size: ${getFromTheme('body')};
   }

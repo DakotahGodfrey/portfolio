@@ -180,13 +180,14 @@ const GlobalStyles = createGlobalStyle`
     }
     }
     input, textarea{
-        width: 80%;
+        width: 100%;
         font-size: ${getFromTheme('body')};
         background: ${getFromTheme('BG')};
         border: none;
         padding: 1rem;
         border-radius: 1rem;
         color: ${getFromTheme('primary')};
+        font-family: 'Nunito', sans-serif;
         &:focus{
           outline:none;
           box-shadow: 0 0 0 2px #88b8ff;
