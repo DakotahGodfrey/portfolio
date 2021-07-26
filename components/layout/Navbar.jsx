@@ -9,7 +9,7 @@ import { getFromTheme } from '../../styles/themes';
 import useViewport from '../../utils/hooks/useViewport';
 import mq from '../../utils/breakpoints';
 import { SiteHeader, MenuButton } from './Lib';
-import { CgMenuHotdog } from 'react-icons/cg';
+import { CgMenu } from 'react-icons/cg';
 import MobileMenu from '../MobileMenu';
 
 const Navbar = ({ handleThemeClick, theme }) => {
@@ -33,7 +33,7 @@ const Navbar = ({ handleThemeClick, theme }) => {
               onClick={handleMenuClick}
               handleMenuClick={handleMenuClick}
             >
-              menu <CgMenuHotdog />
+              <CgMenu />
             </MenuButton>
           </>
         )}
