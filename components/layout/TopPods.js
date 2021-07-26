@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { GridWrapper } from './Lib';
 
-const TopPods = ({ podcasts }) => {
+const TopPods = ({ podcasts, isMobile }) => {
   return (
-    <GridWrapper columns={1} gap={2}>
+    <GridWrapper columns={1} gap={2} isMobile={isMobile}>
       {podcasts.map((pod) => (
         <figure key={pod.title}>
           <iframe

@@ -9,6 +9,8 @@ import Head from 'next/head';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx.min';
 import 'prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js';
+import useViewport from '../../utils/hooks/useViewport';
+import mq from '../../utils/breakpoints';
 
 const CustomLink = ({ href, children }) => {
   return href.startsWith('/') || href.startsWith('#') || href === '' ? (
@@ -57,13 +59,16 @@ export default function Post({ postData, postContent }) {
     title,
     image: { url },
   } = postData;
+  const { width } = useViewport();
+  const isMobile = width <= mq.sm;
   useEffect(() => {
     Prism.highlightAll();
   }, []);
+
   return (
     <>
       <Head></Head>
-      <Container>
+      <Container isMobile={isMobile}>
         <div className='post-meta'>
           <h1 className='post-title'>{title}</h1>
           <div className='image-wrapper'>

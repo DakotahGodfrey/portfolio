@@ -1,6 +1,11 @@
 import Head from 'next/head';
 import { Container, GridWrapper } from '../../components/layout/Lib';
+import useViewport from '../../utils/hooks/useViewport';
+import mq from '../../utils/breakpoints';
 export default function Contact() {
+  const { width } = useViewport();
+  const isSmall = width < mq.sm;
+  const isMobile = width < mq.xs;
   return (
     <>
       <Head></Head>
@@ -10,8 +15,8 @@ export default function Contact() {
           If you’d like to send me a message, I can be reached through the
           contact form below or via social media at any of the handles below.
         </p>
-        <GridWrapper columns={2} gap={3} className='contact-grid'>
-          <section className='contact-form'>
+        <GridWrapper columns={isSmall ? 1 : 2} gap={3} className='contact-grid'>
+          <section className='contact-form' style={{ padding: isMobile && 0 }}>
             <form>
               <h2>Send me a message</h2>
               <div className='control-group'>

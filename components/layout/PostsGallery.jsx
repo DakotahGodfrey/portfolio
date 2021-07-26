@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { getFromTheme } from '../../styles/themes';
 import Link from 'next/link';
 import placeholder from '/public/images/placeholder.svg';
+import useViewport from '../../utils/hooks/useViewport';
+import mq from '../../utils/breakpoints';
 
 const PostFigure = styled.figure`
   padding: 0 0 1rem;
@@ -55,13 +57,16 @@ const PostCard = ({ post }) => {
 };
 
 const PostsGallery = ({ posts, isResults, isSearching, results }) => {
+  const { width } = useViewport();
+  const isMobile = width <= mq.xs;
+  const isTablet = width <= mq.md;
   return (
     <section>
       <h2>
         {isResults ? 'Results: ' : isSearching ? 'Searching' : 'Latest Posts'}{' '}
         {results && <span role='alert'>{results}</span>}
       </h2>
-      <GridWrapper columns={3} gap={3}>
+      <GridWrapper columns={isMobile ? 1 : isTablet ? 2 : 3} gap={3}>
         {posts.map((post) => (
           <PostCard post={post} key={post.id} />
         ))}

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { GridWrapper } from './Lib';
 import { getFromTheme } from '../../styles/themes';
 import { VscRepo } from 'react-icons/vsc';
+import useViewport from '../../utils/hooks/useViewport';
+import mq from '../../utils/breakpoints';
 
 const RepoCard = styled.figure`
   background: ${getFromTheme('BG')};
@@ -48,35 +50,69 @@ const RepoCard = styled.figure`
 `;
 
 const RepoGallery = ({ repos }) => {
+  const { width } = useViewport();
+  const isMobile = width <= mq.xs;
+  const isTablet = width <= mq.md;
+  const isCarousel = width <= mq.md2;
   return (
     <section>
       <h2>Featured Repos</h2>
-      <GridWrapper columns={3}>
-        {repos.map((repo) => (
-          <RepoCard key={repo.name}>
-            <div className='repo-url'>
-              <VscRepo />
-              <a
-                target='_blank'
-                rel='noreferrer'
-                className='truncate'
-                href={repo.url}
-              >
-                {repo.name}
-              </a>
-            </div>
-            {repo.description && (
-              <p className='truncate-2'>{repo.description}</p>
-            )}
-            <div className='repo-lang'>
-              <div
-                style={{ backgroundColor: `${repo.primaryLanguage.color}` }}
-              ></div>{' '}
-              {repo.primaryLanguage.name}
-            </div>
-          </RepoCard>
-        ))}
-      </GridWrapper>
+      {!isCarousel && (
+        <GridWrapper columns={isMobile ? 1 : isTablet ? 2 : 3}>
+          {repos.map((repo) => (
+            <RepoCard key={repo.name}>
+              <div className='repo-url'>
+                <VscRepo />
+                <a
+                  target='_blank'
+                  rel='noreferrer'
+                  className='truncate'
+                  href={repo.url}
+                >
+                  {repo.name}
+                </a>
+              </div>
+              {repo.description && (
+                <p className='truncate-2'>{repo.description}</p>
+              )}
+              <div className='repo-lang'>
+                <div
+                  style={{ backgroundColor: `${repo.primaryLanguage.color}` }}
+                ></div>{' '}
+                {repo.primaryLanguage.name}
+              </div>
+            </RepoCard>
+          ))}
+        </GridWrapper>
+      )}
+      {isCarousel && (
+        <div className='carousel'>
+          {repos.map((repo) => (
+            <RepoCard key={repo.name}>
+              <div className='repo-url'>
+                <VscRepo />
+                <a
+                  target='_blank'
+                  rel='noreferrer'
+                  className='truncate'
+                  href={repo.url}
+                >
+                  {repo.name}
+                </a>
+              </div>
+              {repo.description && (
+                <p className='truncate-2'>{repo.description}</p>
+              )}
+              <div className='repo-lang'>
+                <div
+                  style={{ backgroundColor: `${repo.primaryLanguage.color}` }}
+                ></div>{' '}
+                {repo.primaryLanguage.name}
+              </div>
+            </RepoCard>
+          ))}
+        </div>
+      )}
     </section>
   );
 };

@@ -8,8 +8,12 @@ import { socialLinks } from '../utils/data';
 import PostsGallery from '../components/layout/PostsGallery';
 import { getPinnedRepos, getRecentPostExcerpts } from '../utils/helpers';
 import RepoGallery from '../components/layout/RepoGallery';
+import useViewport from '../utils/hooks/useViewport';
+import mq from '../utils/breakpoints';
 
 export default function Home({ posts, repos }) {
+  const { width } = useViewport();
+  const isMobile = width <= mq.sm;
   return (
     <div>
       <Head>
@@ -19,7 +23,7 @@ export default function Home({ posts, repos }) {
         <meta name='author' content='Dakotah Godfrey' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
-      <Container>
+      <Container isMobile={isMobile}>
         <Introduction hasImage>
           <h1>Hey there I&#39;m Dakotah!</h1>
           <p>
