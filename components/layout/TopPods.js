@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { GridWrapper } from './Lib';
 
-const TopPods = ({ podcasts, isMobile }) => {
+const TopPods = ({ podcasts, isTablet }) => {
   return (
-    <GridWrapper columns={1} gap={2} isMobile={isMobile}>
+    <GridWrapper columns={1} gap={2}>
       {podcasts.map((pod) => (
-        <figure key={pod.title}>
+        <figure
+          style={{ gridTemplateColumns: `${isTablet && '1fr'}` }}
+          key={pod.title}
+        >
           <iframe
             src={pod.src}
             width='100%'

@@ -1,24 +1,22 @@
 import { useState, useEffect } from 'react';
 
-const isRenderingOnServer = typeof window === 'undefined';
-
-const getInitialState = () => {
-  if (!isRenderingOnServer) {
-    return window.innerWidth;
-  }
-  return;
-};
 function useViewport() {
-  const [width, setWidth] = useState(getInitialState());
+  const [width, setWidth] = useState();
+  const isRenderingOnServer = typeof window === 'undefined';
 
   useEffect(() => {
-    setWidth(getInitialState());
+    if (isRenderingOnServer) {
+      return;
+    } else {
+      setWidth(window.innerWidth);
+    }
+
     const handleWindowResize = () => {
       setWidth(window.innerWidth);
     };
     window.addEventListener('resize', handleWindowResize);
     return () => window.removeEventListener('resize', handleWindowResize);
-  }, []);
+  }, [isRenderingOnServer]);
   return { width };
 }
 

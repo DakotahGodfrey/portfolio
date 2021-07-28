@@ -18,42 +18,40 @@ const Navbar = ({ handleThemeClick, theme }) => {
   const isMobile = width <= mq.sm;
   const handleMenuClick = () => setIsOpen(!isOpen);
   return (
-    <>
-      <SiteHeader>
-        {!isMobile && (
-          <nav>
-            <Logo />
-            <SiteLinks links={siteLinks} className={'full-nav'} />
-          </nav>
-        )}
-        {isMobile && (
-          <>
-            <Logo />
-            <MenuButton
-              onClick={handleMenuClick}
-              handleMenuClick={handleMenuClick}
-            >
-              <CgMenu />
-            </MenuButton>
-          </>
-        )}
-        {!isMobile && (
-          <button onClick={() => handleThemeClick()}>
-            Too {theme === 'default' ? 'bright' : 'dark'}?{' '}
-            <span className='material-icons-outlined'>
-              {theme === 'default' ? 'mode_night' : 'light_mode'}
-            </span>
-          </button>
-        )}
-        {isOpen && isMobile && (
-          <MobileMenu
-            handleThemeClick={handleThemeClick}
-            theme={theme}
+    <SiteHeader>
+      {!isMobile && (
+        <nav>
+          <Logo />
+          <SiteLinks links={siteLinks} className={'full-nav'} />
+        </nav>
+      )}
+      {isMobile && (
+        <>
+          <Logo />
+          <MenuButton
+            onClick={handleMenuClick}
             handleMenuClick={handleMenuClick}
-          />
-        )}
-      </SiteHeader>
-    </>
+          >
+            <CgMenu />
+          </MenuButton>
+        </>
+      )}
+      {!isMobile && (
+        <button onClick={() => handleThemeClick()}>
+          Too {theme === 'default' ? 'bright' : 'dark'}?{' '}
+          <span className='material-icons-outlined'>
+            {theme === 'default' ? 'mode_night' : 'light_mode'}
+          </span>
+        </button>
+      )}
+      {isOpen && isMobile && (
+        <MobileMenu
+          handleThemeClick={handleThemeClick}
+          theme={theme}
+          handleMenuClick={handleMenuClick}
+        />
+      )}
+    </SiteHeader>
   );
 };
 

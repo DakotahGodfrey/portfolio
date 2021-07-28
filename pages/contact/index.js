@@ -4,19 +4,24 @@ import useViewport from '../../utils/hooks/useViewport';
 import mq from '../../utils/breakpoints';
 export default function Contact() {
   const { width } = useViewport();
-  const isSmall = width < mq.sm;
   const isMobile = width < mq.xs;
+  const isTablet = width < mq.sm;
   return (
     <>
       <Head></Head>
-      <Container>
-        <h1>Contact</h1>
-        <p className='contact-lead'>
-          If you’d like to send me a message, I can be reached through the
-          contact form below or via social media at any of the handles below.
-        </p>
-        <GridWrapper columns={isSmall ? 1 : 2} gap={3} className='contact-grid'>
-          <section className='contact-form' style={{ padding: isMobile && 0 }}>
+      <Container isTablet={isTablet}>
+        <GridWrapper
+          columns={isTablet ? 1 : 2}
+          gap={3}
+          className='contact-grid'
+        >
+          <section className='contact-form'>
+            <h1>Contact</h1>
+            <p className='contact-lead'>
+              If you’d like to send me a message, I can be reached through the
+              contact form below or via social media at any of the handles
+              below.
+            </p>
             <form>
               <h2>Send me a message</h2>
               <div className='control-group'>

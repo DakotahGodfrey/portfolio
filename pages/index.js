@@ -13,17 +13,19 @@ import mq from '../utils/breakpoints';
 
 export default function Home({ posts, repos }) {
   const { width } = useViewport();
-  const isMobile = width <= mq.sm;
+  const isMobile = width <= mq.xs;
+  const isTablet = width <= mq.sm;
+
   return (
     <div>
       <Head>
         <title>dakotah_dev</title>
         <meta name='description' content='portfolio site' />
-        <meta name='keywords' content='portfolio,site' />
+        <meta name='keywords' content='portfolio, site' />
         <meta name='author' content='Dakotah Godfrey' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
-      <Container isMobile={isMobile}>
+      <Container isTablet={isTablet}>
         <Introduction hasImage>
           <h1>Hey there I&#39;m Dakotah!</h1>
           <p>
@@ -44,7 +46,7 @@ export default function Home({ posts, repos }) {
             <Link href='/contact'>drop me a line here</Link>
           </p>
         </Introduction>
-        <PostsGallery posts={posts} />
+        <PostsGallery posts={posts} isMobile={isMobile} isTablet={isTablet} />
         <RepoGallery repos={repos} />
       </Container>
     </div>

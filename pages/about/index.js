@@ -11,12 +11,13 @@ import useViewport from '../../utils/hooks/useViewport';
 import mq from '../../utils/breakpoints';
 export default function About({ repos }) {
   const { width } = useViewport();
-  const isMobile = width < mq.sm;
+  const isMobile = width < mq.xs;
+  const isTablet = width < mq.sm;
 
   return (
     <>
       <Head></Head>
-      <Container isMobile={isMobile}>
+      <Container isTablet={isTablet}>
         <h1 className='about-title'>
           Hey! I'm Dakotah <span className='wave'>👋</span>
         </h1>
@@ -26,7 +27,7 @@ export default function About({ repos }) {
           <h2>
             <span aria-hidden='true'>🎧</span> What I'm Listening To
           </h2>
-          <TopPods podcasts={podcasts} isMobile={isMobile} />
+          <TopPods podcasts={podcasts} isTablet={isTablet} />
         </section>
         <section className='courses'>
           <h2>

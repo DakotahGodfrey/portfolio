@@ -19,7 +19,8 @@ export default function Blog({ articles, categories }) {
   const [searching, setSearching] = useState(false);
   const debouncedTerm = useDebounce(200, term);
   const { width } = useViewport();
-  const isMobile = width <= mq.sm;
+  const isMobile = width <= mq.xs;
+  const isTablet = width <= mq.sm;
 
   useEffect(() => {
     if (debouncedTerm) {
@@ -49,21 +50,38 @@ export default function Blog({ articles, categories }) {
 
   return (
     <>
-      <Container isMobile={isMobile}>
+      <Container isTablet={isTablet}>
         <BlogSearchBar
           categories={categories}
           setTerm={setTerm}
           handleSubmit={handleSubmit}
           term={term}
+          isMobile={isMobile}
+          isTablet={isTablet}
         />
         {!debouncedTerm && posts.length === 0 && (
-          <PostsGallery posts={articles} />
+          <PostsGallery
+            posts={articles}
+            isMobile={isMobile}
+            isTablet={isTablet}
+          />
         )}
         {searching && (
-          <PostsGallery isSearching posts={generatePlaceHolders(3)} />
+          <PostsGallery
+            isSearching
+            posts={generatePlaceHolders(3)}
+            isMobile={isMobile}
+            isTablet={isTablet}
+          />
         )}
         {posts.length > 0 && error === null && (
-          <PostsGallery isResults results={posts.length} posts={posts} />
+          <PostsGallery
+            isResults
+            results={posts.length}
+            posts={posts}
+            isMobile={isMobile}
+            isTablet={isTablet}
+          />
         )}
         {error !== null && <p>{error}</p>}
       </Container>

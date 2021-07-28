@@ -14,7 +14,7 @@ const Container = styled.main`
   background: ${getFromTheme('secondary')};
   margin-inline: auto;
   padding-bottom: 1.6rem;
-  ${(props) => !props.isMobile && 'padding: 1rem 3rem;'}
+  ${(props) => !props.isTablet && 'padding: 1rem 3rem;'}
   min-height: 80vh;
   h1 {
     font-size: ${getFromTheme('headingXL')};
@@ -38,7 +38,7 @@ const Container = styled.main`
     figure {
       display: grid;
       grid-template-columns: ${(props) =>
-        props.isMobile ? 1 : 'max-content 1fr'};
+        props.isTablet ? 1 : 'max-content 1fr'};
       grid-gap: 2rem;
 
       iframe {
@@ -139,6 +139,9 @@ const SearchForm = styled.form.attrs((props) => ({
     flex-wrap: wrap;
     align-items: center;
     font-size: ${getFromTheme('body')};
+    button {
+      margin-bottom: 1rem;
+    }
   }
 `;
 
@@ -223,6 +226,8 @@ const SiteHeader = styled.header`
     background: ${getFromTheme('BG')};
     z-index: 1;
     padding-left: 2rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
     ul{
       width: 100%;
       position: absolute;
@@ -252,7 +257,6 @@ const SiteHeader = styled.header`
       }
     }
     }
-  }
   
 `;
 

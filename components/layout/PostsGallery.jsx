@@ -56,10 +56,14 @@ const PostCard = ({ post }) => {
   );
 };
 
-const PostsGallery = ({ posts, isResults, isSearching, results }) => {
-  const { width } = useViewport();
-  const isMobile = width <= mq.xs;
-  const isTablet = width <= mq.md;
+const PostsGallery = ({
+  posts,
+  isResults,
+  isSearching,
+  results,
+  isMobile,
+  isTablet,
+}) => {
   return (
     <section>
       <h2>
