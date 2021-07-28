@@ -60,7 +60,7 @@ export default function Post({ postData, postContent }) {
     image: { url },
   } = postData;
   const { width } = useViewport();
-  const isMobile = width <= mq.sm;
+  const isTablet = width <= mq.sm;
   useEffect(() => {
     Prism.highlightAll();
   }, []);
@@ -68,7 +68,7 @@ export default function Post({ postData, postContent }) {
   return (
     <>
       <Head></Head>
-      <Container isMobile={isMobile}>
+      <Container isTablet={isTablet}>
         <div className='post-meta'>
           <h1 className='post-title'>{title}</h1>
           <div className='image-wrapper'>
