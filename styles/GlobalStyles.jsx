@@ -193,6 +193,7 @@ const GlobalStyles = createGlobalStyle`
         &:focus, &:active{
           outline:none;
           box-shadow: 0 0 0 2px #88b8ff;
+          -webkit-box-shadow: 0 0 0 2px #88b8ff;
           background: ${getFromTheme('secondary')};
         }
         resize: none
