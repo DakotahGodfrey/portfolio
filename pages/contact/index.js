@@ -15,13 +15,19 @@ export default function Contact() {
           gap={3}
           className='contact-grid'
         >
-          <section className='contact-form'>
+          <div
+            className='contact-lead'
+            style={{ gridColumn: `${isTablet ? 1 : '1 /span 2'}` }}
+          >
             <h1>Contact</h1>
-            <p className='contact-lead'>
+            <p>
               If you’d like to send me a message, I can be reached through the
               contact form below or via social media at any of the handles
               below.
             </p>
+          </div>
+
+          <section className='contact-form'>
             <form>
               <h2>Send me a message</h2>
               <div className='control-group'>
@@ -38,6 +44,7 @@ export default function Contact() {
               </div>
             </form>
           </section>
+
           <section className='contact-links'>
             <h2>Socials</h2>
             <ul>

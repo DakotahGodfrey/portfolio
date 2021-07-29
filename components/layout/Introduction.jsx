@@ -32,9 +32,10 @@ const IntroWrapper = styled.section`
       }
     }
     .headshot {
-      padding: 1rem;
-      border-radius: 100%;
       align-self: flex-start;
+      display: flex;
+      background: #c4c4c4;
+      border-radius: 100%;
       width: max-content;
       margin-inline: auto;
       img {

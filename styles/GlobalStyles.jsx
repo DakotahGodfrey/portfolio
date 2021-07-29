@@ -147,9 +147,6 @@ const GlobalStyles = createGlobalStyle`
         border-radius: 10px;
       }
     }
-      .contact-lead{
-        max-width: 70ch;
-      }
     .contact-grid{
       align-items: flex-start;
       color: ${getFromTheme('primary')};
@@ -158,6 +155,11 @@ const GlobalStyles = createGlobalStyle`
         border-bottom: 1px solid ${getFromTheme('primary')};
       }
     }
+     .contact-lead{
+        grid-row: 1;  
+        padding: 0 3rem;
+        grid-column: 1 /span 2;
+      }
     .contact-form{
       label{
         display: block;
@@ -188,7 +190,7 @@ const GlobalStyles = createGlobalStyle`
         border-radius: 1rem;
         color: ${getFromTheme('primary')};
         font-family: 'Nunito', sans-serif;
-        &:focus{
+        &:focus, &:active{
           outline:none;
           box-shadow: 0 0 0 2px #88b8ff;
           background: ${getFromTheme('secondary')};
