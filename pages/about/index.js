@@ -9,7 +9,7 @@ import TopPods from '../../components/layout/TopPods';
 import { podcasts } from '../../utils/data';
 import useViewport from '../../utils/hooks/useViewport';
 import mq from '../../utils/breakpoints';
-export default function About({}) {
+export default function About({ repos }) {
   const { width } = useViewport();
   const isMobile = width < mq.xs;
   const isTablet = width < mq.sm;
@@ -22,7 +22,7 @@ export default function About({}) {
           Hey! I'm Dakotah <span className='wave'>👋</span>
         </h1>
         <Bio />
-        {/* <RepoGallery repos={repos} /> */}
+        <RepoGallery repos={repos} />
         <section className='top-pods'>
           <h2>
             <span aria-hidden='true'>🎧</span> What I'm Listening To
@@ -64,11 +64,11 @@ export default function About({}) {
   );
 }
 
-// export async function getStaticProps() {
-//   const repos = await getPinnedRepos();
-//   return {
-//     props: {
-//       repos,
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  const repos = await getPinnedRepos();
+  return {
+    props: {
+      repos,
+    },
+  };
+}
