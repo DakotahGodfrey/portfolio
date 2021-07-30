@@ -75,7 +75,7 @@ export default function Post({ postData, postContent }) {
             <Image src={url} alt={title} objectFit='cover' layout='fill' />
           </div>
         </div>
-        <section className='post-content'>
+        <section className='post-content' style={{ padding: '2rem 1rem' }}>
           <MDXRemote {...postContent} components={components} />
         </section>
       </Container>
