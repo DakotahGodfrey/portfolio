@@ -9,6 +9,7 @@ import TopPods from '../../components/layout/TopPods';
 import { podcasts } from '../../utils/data';
 import useViewport from '../../utils/hooks/useViewport';
 import mq from '../../utils/breakpoints';
+
 export default function About({ repos }) {
   const { width } = useViewport();
   const isMobile = width < mq.xs;

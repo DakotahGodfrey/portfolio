@@ -28,7 +28,13 @@ export default function Contact() {
           </div>
 
           <section className='contact-form'>
-            <form>
+            <form
+              name='contact'
+              method='POST'
+              action='/success'
+              data-netlify='true'
+            >
+              <input type='hidden' name='contact-form' value='contact' />
               <h2>Send me a message</h2>
               <div className='control-group'>
                 <label htmlFor='name'>Name</label>
