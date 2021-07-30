@@ -12,6 +12,14 @@ export default function Contact() {
   const isTablet = width < mq.sm;
   function handleSubmit(e) {
     e.preventDefault();
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': event.target.getAttribute('name'),
+        ...name,
+      }),
+    });
     setSubmitted(true);
   }
   return (
