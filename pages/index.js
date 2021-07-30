@@ -19,11 +19,26 @@ export default function Home({ posts, repos }) {
   return (
     <div>
       <Head>
-        <title>dakotah_dev</title>
-        <meta name='description' content='portfolio site' />
-        <meta name='keywords' content='portfolio, site' />
+        <title> Dakotah Godfrey Dev | Home</title>
+        <meta
+          name='description'
+          content="I'm a frontend developer, who builds awesome things with React and JavaScript.  Contact me to help you build your next project."
+        />
+        <meta name='keywords' content='react, web-design, dakotah, developer' />
         <meta name='author' content='Dakotah Godfrey' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta name='twitter:card' content='summary' />;
+        <meta name='twitter:site' content='@dakotah_dev' />;
+        <meta
+          name='twitter:image'
+          content='https://dakotahg.dev/images/previewImage.png'
+        />
+        ;
+        <meta name='twitter:title' content='Dakotah Godfrey Dev | Home' />
+        <meta
+          name='twitter:description'
+          content="I'm a frontend developer, who builds awesome things with React and JavaScript.  Contact me to help you build your next project."
+        />
       </Head>
       <Container isTablet={isTablet}>
         <Introduction hasImage>
