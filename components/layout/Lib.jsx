@@ -103,13 +103,23 @@ const Footer = styled.footer`
 const CategoryButton = styled.button.attrs((props) => ({
   onClick: props.onClick,
 }))`
+  position: relative;
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
-  color: #fff;
-  background: ${(props) => props.color};
+  color: ${getFromTheme('primary')};
   font-weight: 700;
+  min-width: 8rem;
   height: 4.4rem;
-  margin-right: 0.5rem;
+  text-transform: lowercase;
+  margin-right: 1.5rem;
+  box-shadow: 0 0 0 2px inset ${getFromTheme('primary')};
+  transition: box-shadow 0.3s ease-out;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 0 0 4px inset ${(props) => props.color};
+  }
 `;
 
 const SearchForm = styled.form.attrs((props) => ({
