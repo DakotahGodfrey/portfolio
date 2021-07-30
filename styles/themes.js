@@ -11,6 +11,7 @@ const defaultTheme = {
   headingLG: '2.8rem',
   headingMD: '2.4rem',
   headingSM: '2.0rem',
+  success: '#5cb85c',
 };
 
 const darkTheme = {

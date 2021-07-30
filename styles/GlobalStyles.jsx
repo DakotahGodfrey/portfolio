@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { horizontalBounce } from './keyframes';
 import { getFromTheme } from './themes';
 
 const GlobalStyles = createGlobalStyle`
@@ -166,6 +167,38 @@ const GlobalStyles = createGlobalStyle`
         font-size: ${getFromTheme('headingSM')}
       }
       
+    }
+    .contact-submit{
+      font-size: ${getFromTheme('headingSM')};
+      display:flex;
+      align-items: center;
+      cursor: pointer;
+      background-color: ${getFromTheme('BG')};
+      border:none;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      margin-left: auto;
+      transition: background-color 0.4s ease-in-out;
+      &:hover, &:focus{
+        outline: none;
+        box-shadow: 0 0 0 2px #88b8ff;
+        -webkit-box-shadow: 0px 0px 0 2px  #88b8ff;
+        background-color: transparent;
+        svg{
+
+        animation: ${horizontalBounce} 1s ease-in-out infinite;
+        }
+      }
+      svg{margin-left: 1rem }
+    }
+    .submitted-message{
+      h2{
+        display: flex;
+        align-items: center;
+      svg{
+        color: ${getFromTheme('success')};
+        margin-left: 1.6rem;
+      }
     }
     textarea{
       height: 12.5rem;

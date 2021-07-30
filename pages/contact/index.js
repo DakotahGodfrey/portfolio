@@ -1,11 +1,19 @@
+/* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head';
 import { Container, GridWrapper } from '../../components/layout/Lib';
 import useViewport from '../../utils/hooks/useViewport';
 import mq from '../../utils/breakpoints';
+import { useState } from 'react';
+import { MdSend, MdCheckCircle } from 'react-icons/md';
 export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
   const { width } = useViewport();
   const isMobile = width < mq.xs;
   const isTablet = width < mq.sm;
+  function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitted(true);
+  }
   return (
     <>
       <Head></Head>
@@ -28,28 +36,40 @@ export default function Contact() {
           </div>
 
           <section className='contact-form'>
-            <form
-              name='contact'
-              method='POST'
-              action='/success'
-              data-netlify='true'
-            >
-              <input type='hidden' name='contact-form' value='contact' />
-              <h2>Send me a message</h2>
-              <div className='control-group'>
-                <label htmlFor='name'>Name</label>
-                <input type='text' id='name' name='name' />
+            {!submitted ? (
+              <form
+                name='contact'
+                method='POST'
+                onSubmit={(e) => handleSubmit(e)}
+                data-netlify='true'
+              >
+                <input type='hidden' name='contact-form' value='contact' />
+                <h2>Send me a message</h2>
+                <div className='control-group'>
+                  <label htmlFor='name'>Name</label>
+                  <input type='text' id='name' name='name' required />
+                </div>
+                <div className='control-group'>
+                  <label htmlFor='email'>Email</label>
+                  <input type='email' id='email' name='email' required />
+                </div>
+                <div className='control-group'>
+                  <label htmlFor='message'>Message</label>
+                  <textarea name='message' id='message' required />
+                </div>
+                <button className='contact-submit' type='submit'>
+                  Send <MdSend />
+                </button>
+              </form>
+            ) : (
+              <div className='submitted-message'>
+                <h2 role='alert'>
+                  Message sent!
+                  <MdCheckCircle />
+                </h2>
+                <p> Thanks for being awesome, I'll be in touch soon.</p>
               </div>
-              <div className='control-group'>
-                <label htmlFor='email'>Email</label>
-                <input type='email' id='email' name='email' />
-              </div>
-              <div className='control-group'>
-                <label htmlFor='message'>Message</label>
-                <textarea name='message' id='message' />
-              </div>
-              <button type='submit'>Send</button>
-            </form>
+            )}
           </section>
 
           <section className='contact-links'>
