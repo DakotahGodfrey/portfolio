@@ -48,6 +48,7 @@ export default function Contact() {
                 <label htmlFor='message'>Message</label>
                 <textarea name='message' id='message' />
               </div>
+              <button type='submit'>Send</button>
             </form>
           </section>
 
