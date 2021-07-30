@@ -11,7 +11,7 @@ import RepoGallery from '../components/layout/RepoGallery';
 import useViewport from '../utils/hooks/useViewport';
 import mq from '../utils/breakpoints';
 
-export default function Home({ posts, repos }) {
+export default function Home({ posts }) {
   const { width } = useViewport();
   const isMobile = width <= mq.xs;
   const isTablet = width <= mq.sm;
@@ -62,18 +62,18 @@ export default function Home({ posts, repos }) {
           </p>
         </Introduction>
         <PostsGallery posts={posts} isMobile={isMobile} isTablet={isTablet} />
-        <RepoGallery repos={repos} />
+        {/* <RepoGallery repos={repos} /> */}
       </Container>
     </div>
   );
 }
 
 export async function getStaticProps() {
-  const repos = await getPinnedRepos();
+  // const repos = await getPinnedRepos();
   const posts = await getRecentPostExcerpts(3);
   return {
     props: {
-      repos,
+      // repos,
       posts,
     },
   };
