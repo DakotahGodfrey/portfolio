@@ -55,7 +55,11 @@ const MobileMenu = ({ handleThemeClick, theme, handleMenuClick }) => {
   return (
     <div id='modal-overlay'>
       <nav className='mobile-menu' id='modal'>
-        <button className='close' onClick={handleMenuClick}>
+        <button
+          className='close'
+          aria-label='Close dialog'
+          onClick={handleMenuClick}
+        >
           <GoChevronRight />
         </button>
         <SiteLinks

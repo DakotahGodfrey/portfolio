@@ -20,7 +20,11 @@ const SiteLinks = ({
     })}
     {isMobile && (
       <li>
-        <button onClick={() => handleThemeClick()}>
+        <button
+          aria-label='toggle dark mode'
+          aria-pressed={theme !== 'default'}
+          onClick={() => handleThemeClick()}
+        >
           Too {theme === 'default' ? 'bright' : 'dark'}?{' '}
           <span className='material-icons-outlined'>
             {theme === 'default' ? 'mode_night' : 'light_mode'}
