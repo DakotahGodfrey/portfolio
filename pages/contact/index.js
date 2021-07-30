@@ -44,9 +44,9 @@ export default function Contact() {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': e.target.getAttribute('name'),
-        Name: name,
-        Email: email,
-        Message: message,
+        name,
+        email,
+        message,
       }),
     })
       .then(() => {
@@ -78,7 +78,7 @@ export default function Contact() {
           <section className='contact-form'>
             {!submitted ? (
               <form
-                name='contact'
+                name='contact-form'
                 method='POST'
                 onSubmit={(e) => handleSubmit(e)}
                 data-netlify='true'
