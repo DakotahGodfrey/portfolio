@@ -8,7 +8,9 @@ const SocialLinks = ({ links }) => (
   <ul>
     {links.map((link) => (
       <li key={link.display}>
-        <a href={link.url}>{link.icon}</a>
+        <a href={link.url}>
+          {link.icon} <span className='sr-only'>{link.display}</span>
+        </a>
       </li>
     ))}
   </ul>

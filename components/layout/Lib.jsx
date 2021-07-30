@@ -278,6 +278,8 @@ const SiteHeader = styled.header`
 
 const MenuButton = styled.button.attrs((props) => ({
   children: props.children,
+  'aria-label': 'open menu',
+  'aria-haspopup': true,
 }))`
   font-size: ${getFromTheme('headingMD')};
   svg {

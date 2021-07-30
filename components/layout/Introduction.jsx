@@ -17,13 +17,11 @@ const IntroWrapper = styled.section`
     grid-template-columns: ${(props) =>
       props.isMobile ? '1fr' : '2fr max-content'};
     .intro {
-      text-align: ${(props) => props.isNarrow && 'left'};
       h1 {
         font-size: ${getFromTheme('headingLG')};
         margin-bottom: 1.6rem;
       }
       p {
-        /* font-size: ${getFromTheme('headingSM')}; */
         margin-top: 1rem;
       }
       a {

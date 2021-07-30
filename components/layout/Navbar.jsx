@@ -31,6 +31,7 @@ const Navbar = ({ handleThemeClick, theme }) => {
         <>
           <Logo />
           <MenuButton
+            ariaExpanded={isOpen}
             onClick={handleMenuClick}
             handleMenuClick={handleMenuClick}
           >
