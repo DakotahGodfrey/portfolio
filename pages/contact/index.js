@@ -10,6 +10,13 @@ export default function Contact() {
   const { width } = useViewport();
   const isMobile = width < mq.xs;
   const isTablet = width < mq.sm;
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+      )
+      .join('&');
+  };
   function handleSubmit(e) {
     e.preventDefault();
     fetch('/', {
