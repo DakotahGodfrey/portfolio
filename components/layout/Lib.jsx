@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { getFromTheme } from '../../styles/themes';
-
+import { horizontalBounce } from '../../styles/keyframes';
 const GridWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(
@@ -218,7 +218,11 @@ const SiteHeader = styled.header`
   }
   .mobile-menu{
     grid-column: 2;
-    width: 20rem;
+    width: 50%;
+    min-width: 25rem;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    box-shadow: 0 2px 4px 1px #000;
     position: fixed;
     right: 0;
     top: 0;
@@ -234,8 +238,15 @@ const SiteHeader = styled.header`
       top: 6rem;
       li{
         margin-bottom: 1rem;
-        height: 4.4rem;
+        min-height: 4.4rem;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid #d3d3d3;
         a{
+          display: block;
+          width: 100%;
+          padding: 0.5rem;
           color: ${getFromTheme('primary')};
         }
       }
@@ -246,10 +257,15 @@ const SiteHeader = styled.header`
     }
     button.close{
       height: 4.4rem;
-       position: fixed;
-      top: 0;
-      right: 0;
+      position: fixed;
+      top: 2rem;
+      right: 1rem;
       width: 4.4rem;
+      &:hover{
+        svg{
+          animation: 2s ${horizontalBounce} ease-in-out infinite;
+        }
+      }
       svg{
         color: ${getFromTheme('accent')};
         width: 2.4rem;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { siteLinks } from '../../utils/data';
@@ -16,7 +16,9 @@ const Navbar = ({ handleThemeClick, theme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { width } = useViewport();
   const isMobile = width <= mq.sm;
+
   const handleMenuClick = () => setIsOpen(!isOpen);
+
   return (
     <SiteHeader>
       {!isMobile && (
