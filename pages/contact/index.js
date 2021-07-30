@@ -32,15 +32,15 @@ export default function Contact() {
               <h2>Send me a message</h2>
               <div className='control-group'>
                 <label htmlFor='name'>Name</label>
-                <input type='text' name='name' />
+                <input type='text' id='name' name='name' />
               </div>
               <div className='control-group'>
                 <label htmlFor='email'>Email</label>
-                <input type='email' name='email' />
+                <input type='email' id='email' name='email' />
               </div>
               <div className='control-group'>
                 <label htmlFor='message'>Message</label>
-                <textarea name='message' />
+                <textarea name='message' id='message' />
               </div>
             </form>
           </section>
