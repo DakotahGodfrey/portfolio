@@ -83,7 +83,15 @@ export default function Blog({ articles, categories }) {
             isTablet={isTablet}
           />
         )}
-        {error !== null && <p>{error}</p>}
+        {error !== null && (
+          <PostsGallery
+            error={error}
+            results={posts.length}
+            posts={posts}
+            isMobile={isMobile}
+            isTablet={isTablet}
+          />
+        )}
       </Container>
     </>
   );

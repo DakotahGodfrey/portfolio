@@ -31,7 +31,7 @@ const CustomImage = ({ src, alt, width, height, title }) => {
         <Image
           src={src}
           alt={alt}
-          layout='fill'
+          layout={'fill'}
           objectFit='cover'
           quality={75}
         />

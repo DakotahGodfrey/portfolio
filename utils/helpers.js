@@ -4,15 +4,18 @@ const getRecentPostExcerpts = async (limit = 3) => {
   const blogQuery = `
     query Articles {
       articles(limit: ${limit}, sort:"published_at:desc"){
-        title
-        description
-        slug
-        image{
-          url
-        }
-
+          title
+          description
+          slug
+          category {
+              title
+              color
+          }
+          image{
+            url
+          }
       }
-    }
+}
   `;
 
   const res = await fetch(BLOG_URL, {
@@ -54,9 +57,6 @@ const getPostBySlug = async (slug) => {
         content
         writer{
           name
-          avatar{
-            url
-          }
         }
         image{
           url
@@ -87,6 +87,7 @@ const getPostExcerptsAndCategories = async () => {
         slug
         category{
           title
+          color
         }
         image{
           url

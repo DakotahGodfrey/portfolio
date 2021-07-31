@@ -141,7 +141,7 @@ const GlobalStyles = createGlobalStyle`
     .image-wrapper {
       position: relative;
       width: 100%;
-      height: 45vh;
+      height: 65vh;
       margin: 2rem auto;
       border-radius: 5px;
       img {

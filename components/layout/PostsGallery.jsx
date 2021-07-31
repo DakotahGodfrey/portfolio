@@ -25,6 +25,20 @@ const PostFigure = styled.figure`
   }
   figcaption {
     font-size: ${getFromTheme('body')};
+    &.category-color {
+      border-top: 1px solid ${getFromTheme('muted')};
+      padding-top: 0.5rem;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      div {
+        background-color: ${(props) => props.categoryColor};
+        border-radius: 100%;
+        height: 1.6rem;
+        width: 1.6rem;
+        margin-right: 1rem;
+      }
+    }
   }
   h3 {
     font-size: ${getFromTheme('headingMD')};
@@ -33,7 +47,7 @@ const PostFigure = styled.figure`
 
 const PostCard = ({ post }) => {
   return (
-    <PostFigure>
+    <PostFigure categoryColor={post?.category?.color}>
       <div>
         <Image
           src={post.image ? post.image?.url : placeholder}
@@ -52,6 +66,12 @@ const PostCard = ({ post }) => {
         )}
       </h3>
       <figcaption className='truncate-2'>{post.description}</figcaption>
+      {post.category && (
+        <figcaption className='truncate-2 category-color'>
+          <div></div>
+          {post.category?.title}
+        </figcaption>
+      )}
     </PostFigure>
   );
 };
@@ -63,18 +83,38 @@ const PostsGallery = ({
   results,
   isMobile,
   isTablet,
+  error,
 }) => {
   return (
     <section>
-      <h2>
-        {isResults ? 'Results: ' : isSearching ? 'Searching' : 'Latest Posts'}{' '}
-        {results && <span role='alert'>{results}</span>}
-      </h2>
-      <GridWrapper columns={isMobile ? 1 : isTablet ? 2 : 3} gap={3}>
-        {posts.map((post) => (
-          <PostCard post={post} key={post.id} />
-        ))}
-      </GridWrapper>
+      {error ? (
+        <>
+          <h2>
+            <span role='alert'>{error}</span>
+          </h2>
+          <GridWrapper columns={isMobile ? 1 : isTablet ? 2 : 3} gap={3}>
+            {posts.map((post) => (
+              <PostCard post={post} key={post.id} />
+            ))}
+          </GridWrapper>
+        </>
+      ) : (
+        <>
+          <h2>
+            {isResults
+              ? 'Results: '
+              : isSearching
+              ? 'Searching'
+              : 'Latest Posts'}{' '}
+            {results && <span role='alert'>{results}</span>}
+          </h2>
+          <GridWrapper columns={isMobile ? 1 : isTablet ? 2 : 3} gap={3}>
+            {posts.map((post) => (
+              <PostCard post={post} key={post.id} />
+            ))}
+          </GridWrapper>
+        </>
+      )}
     </section>
   );
 };
