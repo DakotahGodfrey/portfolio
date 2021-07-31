@@ -27,17 +27,30 @@ export default function Home({ posts, repos }) {
         <meta name='keywords' content='react, web-design, dakotah, developer' />
         <meta name='author' content='Dakotah Godfrey' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <meta name='twitter:card' content='summary' />;
-        <meta name='twitter:site' content='@dakotah_dev' />;
+
+        <meta property='og:url' content='https://dakotahg.dev/' />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content=' Dakotah Godfrey Dev | Home' />
         <meta
-          name='twitter:image'
+          property='og:description'
+          content="I'm a frontend developer, who builds awesome things with React and JavaScript.  Contact me to help you build your next project."
+        />
+        <meta
+          property='og:image'
           content='https://dakotahg.dev/images/previewImage.png'
         />
-        ;
-        <meta name='twitter:title' content='Dakotah Godfrey Dev | Home' />
+
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta property='twitter:domain' content='dakotahg.dev' />
+        <meta property='twitter:url' content='https://dakotahg.dev/' />
+        <meta name='twitter:title' content=' Dakotah Godfrey Dev | Home' />
         <meta
           name='twitter:description'
           content="I'm a frontend developer, who builds awesome things with React and JavaScript.  Contact me to help you build your next project."
+        />
+        <meta
+          name='twitter:image'
+          content='https://dakotahg.dev/images/previewImage.png'
         />
       </Head>
       <Container isTablet={isTablet}>
