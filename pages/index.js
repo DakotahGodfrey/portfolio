@@ -74,7 +74,12 @@ export default function Home({ posts, repos }) {
             <Link href='/contact'>drop me a line here</Link>
           </p>
         </Introduction>
-        <PostsGallery posts={posts} isMobile={isMobile} isTablet={isTablet} />
+        <PostsGallery
+          posts={posts}
+          isMobile={isMobile}
+          isTablet={isTablet}
+          columns={2}
+        />
         <RepoGallery repos={repos} />
       </Container>
     </div>
@@ -83,7 +88,7 @@ export default function Home({ posts, repos }) {
 
 export async function getStaticProps() {
   const repos = await getPinnedRepos();
-  const posts = await getRecentPostExcerpts(3);
+  const posts = await getRecentPostExcerpts(2);
   return {
     props: {
       repos,

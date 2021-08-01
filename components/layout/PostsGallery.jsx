@@ -84,6 +84,7 @@ const PostsGallery = ({
   isMobile,
   isTablet,
   error,
+  columns,
 }) => {
   return (
     <section>
@@ -92,7 +93,10 @@ const PostsGallery = ({
           <h2>
             <span role='alert'>{error}</span>
           </h2>
-          <GridWrapper columns={isMobile ? 1 : isTablet ? 2 : 3} gap={3}>
+          <GridWrapper
+            columns={isMobile ? 1 : isTablet ? 2 : columns ? columns : 3}
+            gap={3}
+          >
             {posts.map((post) => (
               <PostCard post={post} key={post.id} />
             ))}
@@ -108,7 +112,10 @@ const PostsGallery = ({
               : 'Latest Posts'}{' '}
             {results && <span role='alert'>{results}</span>}
           </h2>
-          <GridWrapper columns={isMobile ? 1 : isTablet ? 2 : 3} gap={3}>
+          <GridWrapper
+            columns={isMobile ? 1 : isTablet ? 2 : columns ? columns : 3}
+            gap={3}
+          >
             {posts.map((post) => (
               <PostCard post={post} key={post.id} />
             ))}
