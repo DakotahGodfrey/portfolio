@@ -18,6 +18,7 @@ export default function About({ repos }) {
   return (
     <>
       <Head>
+        <title>Dakotah Godfrey | About</title>
         <meta
           name='description'
           content="I'm a frontend developer, who builds awesome things with React and JavaScript.  Contact me to help you build your next project."

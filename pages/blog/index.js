@@ -52,7 +52,7 @@ export default function Blog({ articles, categories }) {
   return (
     <>
       <Head>
-        <title>Blog | Dakotah Godfrey</title>
+        <title>Dakotah Godfrey | Blog</title>
         <meta
           name='description'
           content='Recent writings by Dakotah Godfrey, a community-taught front-end developer. Posts about learning to code, web development, and more.'
