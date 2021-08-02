@@ -56,7 +56,41 @@ export default function Contact() {
   }
   return (
     <>
-      <Head></Head>
+      <Head>
+        <title>Dakotah Godfrey | Contact</title>
+        <meta
+          name='description'
+          content="I'm a frontend developer, who builds awesome things with React and JavaScript. Send me a message through my contact form, or at any of my social media handles."
+        />
+        <meta name='author' content='@dakotah_dev' />
+        <meta
+          name='keywords'
+          content='contact, frontend, Toronto, websites, Dakotah'
+        />
+        <meta property='og:url' content='https://dakotahg.dev/contact' />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content={`Contact | Dakotah Godfrey`} />
+        <meta
+          property='og:description'
+          content="I'm a frontend developer, who builds awesome things with React and JavaScript. Send me a message through my contact form, or at any of my social media handles."
+        />
+        <meta
+          property='og:image'
+          content='https://dakotahg.dev/images/contactPreview.png'
+        />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta property='twitter:domain' content='dakotahg.dev' />
+        <meta property='twitter:url' content='https://dakotahg.dev/contact' />
+        <meta name='twitter:title' content='Contact | Dakotah Godfrey' />
+        <meta
+          name='twitter:description'
+          content="I'm a frontend developer, who builds awesome things with React and JavaScript. Send me a message through my contact form, or at any of my social media handles."
+        />
+        <meta
+          name='twitter:image'
+          content='https://dakotahg.dev/images/contactPreview.png'
+        />
+      </Head>
       <Container isTablet={isTablet}>
         <GridWrapper
           columns={isTablet ? 1 : 2}
