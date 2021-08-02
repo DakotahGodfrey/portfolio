@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Container } from '../../components/layout/Lib';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
+import matter from 'gray-matter';
 import { getAllPostSlugs, getPostBySlug } from '../../utils/helpers';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -54,11 +55,8 @@ const components = {
   hr: CustomHr,
 };
 
-export default function Post({ postData, postContent }) {
-  const {
-    title,
-    image: { url },
-  } = postData;
+export default function Post({ post, meta, postContent }) {
+  const { title, image, description, slug } = meta;
   const { width } = useViewport();
   const isTablet = width <= mq.sm;
   useEffect(() => {
@@ -67,12 +65,28 @@ export default function Post({ postData, postContent }) {
 
   return (
     <>
-      <Head></Head>
+      <Head>
+        <title>{title}</title>
+        <meta name='description' content={description} />
+        <meta name='author' content='@dakotah_dev' />
+        <meta name='keywords' content='react, learning, code, developer' />
+        <meta property='og:url' content={`https://dakotahg.dev/${slug}`} />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content={`${title} | Dakotah Godfrey`} />
+        <meta property='og:description' content={description} />
+        <meta property='og:image' content={image} />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta property='twitter:domain' content='dakotahg.dev' />
+        <meta property='twitter:url' content={`https://dakotahg.dev/${slug}`} />
+        <meta name='twitter:title' content={`${title} | Dakotah Godfrey`} />
+        <meta name='twitter:description' content={description} />
+        <meta name='twitter:image' content={image} />
+      </Head>
       <Container isTablet={isTablet}>
         <div className='post-meta'>
           <h1 className='post-title'>{title}</h1>
           <div className='image-wrapper'>
-            <Image src={url} alt={title} objectFit='cover' layout='fill' />
+            <Image src={image} alt={title} objectFit='cover' layout='fill' />
           </div>
         </div>
         <section className='post-content' style={{ padding: '2rem 1rem' }}>
@@ -84,9 +98,11 @@ export default function Post({ postData, postContent }) {
 }
 
 export async function getStaticProps({ params }) {
-  const postData = await getPostBySlug(params.slug);
-  const postContent = await serialize(postData.content);
-  return { props: { postData, postContent } };
+  const post = await getPostBySlug(params.slug);
+  const { data: meta, content } = matter(post);
+  const postContent = await serialize(content);
+
+  return { props: { post, meta, postContent } };
 }
 
 export async function getStaticPaths() {
