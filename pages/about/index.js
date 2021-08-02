@@ -17,7 +17,40 @@ export default function About({ repos }) {
 
   return (
     <>
-      <Head></Head>
+      <Head>
+        <meta
+          name='description'
+          content="I'm a frontend developer, who builds awesome things with React and JavaScript.  Contact me to help you build your next project."
+        />
+        <meta name='author' content='@dakotah_dev' />
+        <meta
+          name='keywords'
+          content='react, frontend, Toronto, about, Dakotah'
+        />
+        <meta property='og:url' content='https://dakotahg.dev/about' />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content={`About | Dakotah Godfrey`} />
+        <meta
+          property='og:description'
+          content="I'm a frontend developer, who builds awesome things with React and JavaScript.  Contact me to help you build your next project."
+        />
+        <meta
+          property='og:image'
+          content='https://dakotahg.dev/images/aboutPreview.png'
+        />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta property='twitter:domain' content='dakotahg.dev' />
+        <meta property='twitter:url' content='https://dakotahg.dev/about' />
+        <meta name='twitter:title' content='About | Dakotah Godfrey' />
+        <meta
+          name='twitter:description'
+          content="I'm a frontend developer, who builds awesome things with React and JavaScript.  Contact me to help you build your next project."
+        />
+        <meta
+          name='twitter:image'
+          content='https://dakotahg.dev/images/aboutPreview.png'
+        />
+      </Head>
       <Container isTablet={isTablet}>
         <h1 className='about-title'>
           Hey! I'm Dakotah <span className='wave'>👋</span>

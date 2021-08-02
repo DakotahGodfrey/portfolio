@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 import { Container } from '../../components/layout/Lib';
 import {
   generatePlaceHolders,
@@ -50,6 +51,41 @@ export default function Blog({ articles, categories }) {
 
   return (
     <>
+      <Head>
+        <title>Blog | Dakotah Godfrey</title>
+        <meta
+          name='description'
+          content='Recent writings by Dakotah Godfrey, a community-taught front-end developer. Posts about learning to code, web development, and more.'
+        />
+        <meta name='author' content='@dakotah_dev' />
+        <meta
+          name='keywords'
+          content='react, frontend, Toronto, websites, Dakotah'
+        />
+        <meta property='og:url' content='https://dakotahg.dev/blog' />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content={`Blog | Dakotah Godfrey`} />
+        <meta
+          property='og:description'
+          content='Recent writings by Dakotah Godfrey, a community-taught front-end developer. Posts about learning to code, web development, and more.'
+        />
+        <meta
+          property='og:image'
+          content='https://dakotahg.dev/images/blogPreview.png'
+        />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta property='twitter:domain' content='dakotahg.dev' />
+        <meta property='twitter:url' content='https://dakotahg.dev/blog' />
+        <meta name='twitter:title' content='Blog | Dakotah Godfrey' />
+        <meta
+          name='twitter:description'
+          content='Recent writings by Dakotah Godfrey, a community-taught front-end developer. Posts about learning to code, web development, and more.'
+        />
+        <meta
+          name='twitter:image'
+          content='https://dakotahg.dev/images/blogPreview.png'
+        />
+      </Head>
       <Container isTablet={isTablet}>
         <BlogSearchBar
           categories={categories}
