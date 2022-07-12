@@ -16,13 +16,7 @@ const Home: NextPage = ({
           <meta name='description' content='' />
         </Head>
 
-        <main>
-          <ul>
-            {repos.map(({ node }: Repo) => (
-              <li key={node.name}>{node.name}</li>
-            ))}
-          </ul>
-        </main>
+        <main></main>
 
         <footer></footer>
       </div>
