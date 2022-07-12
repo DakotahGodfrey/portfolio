@@ -1,16 +1,5 @@
+import { Repo } from "../types";
 import { GITHUB_URL } from "./endpoints";
-
-export type Repo = {
-  node: {
-    name: string;
-    url: string;
-    description: string;
-    primaryLanguage: {
-      name: string;
-      color: string;
-    };
-  };
-};
 
 export const getPinnedRepos = async () => {
   const query = `
