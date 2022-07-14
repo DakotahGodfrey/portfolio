@@ -16,10 +16,6 @@ const Home: NextPage = ({
           <title>dg_dev</title>
           <meta name='description' content='' />
         </Head>
-<<<<<<< HEAD
-
-        <main></main>
-=======
         <header>
           <Navbar />
         </header>
@@ -28,7 +24,6 @@ const Home: NextPage = ({
           <RepoCarousel repos={repos} />
           <BlogPreviews articles={articles} />
         </main>
->>>>>>> home-page
 
         <footer></footer>
       </div>
