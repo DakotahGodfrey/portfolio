@@ -5,7 +5,7 @@ export const getPinnedRepos = async () => {
   const query = `
 query {
    user(login:"dakotahgodfrey"){
-      pinnedItems(first: 3, types: [REPOSITORY, GIST]){
+      pinnedItems(first: 4, types: [REPOSITORY, GIST]){
          totalCount
          edges{
             node{

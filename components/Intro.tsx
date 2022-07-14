@@ -2,9 +2,9 @@ import React from "react";
 
 export const Intro: React.FC = () => {
   return (
-    <div>
+    <section>
       <h1>Hi Welcome To My Portfolio!</h1>
-      <section>
+      <div>
         {/* 
    Image
    2 Intro Paragraphs
@@ -24,7 +24,7 @@ export const Intro: React.FC = () => {
           </p>
         </div>
         <div className='profile-photo'></div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };

@@ -1,28 +1,41 @@
+import styled from "styled-components";
+import { getFromTheme } from "../styles/theme";
 import { Repo } from "../types";
 
 interface IRepoCarouselProps {
   repos: Repo[];
 }
 
+const Container = styled.section`
+  h3 {
+    font-size: ${getFromTheme("headingSM")};
+  }
+  .row {
+    display: flex;
+    overflow-x: scroll;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+  }
+`;
 export const RepoCarousel: React.FC<IRepoCarouselProps> = ({ repos }) => {
   return (
-    <div>
-      <h2>Featured Repos</h2>
-      <section>
+    <Container>
+      <h2>Featured Github Repos</h2>
+      <div className='row'>
         {repos.length ? (
           repos.map(({ node: { name, url, primaryLanguage, description } }) => (
             <div key={name} className='card card-repo'>
               <h3>
-                <i>Star</i> <a href={url}>{name}</a>
+                <span style={{ marginRight: "0.5rem" }}>⭐️</span>{" "}
+                <a href={url}>{name}</a>
               </h3>
-              <p>{description}</p>
-              <p>
+              <p className='truncate-3'>{description}</p>
+              <div className='lang-tag'>
                 <span
-                  className='lang-tag'
                   style={{ backgroundColor: `${primaryLanguage.color}` }}
                 ></span>{" "}
                 {primaryLanguage.name}
-              </p>
+              </div>
             </div>
           ))
         ) : (
@@ -30,7 +43,7 @@ export const RepoCarousel: React.FC<IRepoCarouselProps> = ({ repos }) => {
             <h2>Loading</h2>
           </div>
         )}
-      </section>
-    </div>
+      </div>
+    </Container>
   );
 };

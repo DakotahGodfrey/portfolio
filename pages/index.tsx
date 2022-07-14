@@ -1,39 +1,48 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
-import { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import { Intro, Navbar, RepoCarousel, BlogPreviews } from "../components";
-import { defaultTheme } from "../styles/theme";
+import { getFromTheme } from "../styles/theme";
 import { getPinnedRepos, getArticleExcerpts } from "../utils";
+
+const Main = styled.main`
+  max-width: 100rem;
+  background-color: ${getFromTheme("secondary")};
+  margin-inline: auto;
+  p {
+    margin-top: 1rem;
+  }
+  section {
+    padding: 1rem 3rem;
+  }
+`;
 
 const Home: NextPage = ({
   repos,
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <div>
-        <Head>
-          <title>dg_dev</title>
-          <meta name='description' content='' />
-        </Head>
-        <header>
-          <Navbar />
-        </header>
-        <main>
-          <Intro />
-          <RepoCarousel repos={repos} />
-          <BlogPreviews articles={articles} />
-        </main>
+    <div>
+      <Head>
+        <title>dg_dev</title>
+        <meta name='description' content='' />
+      </Head>
+      <header>
+        <Navbar />
+      </header>
+      <Main>
+        <Intro />
+        <RepoCarousel repos={repos} />
+        <BlogPreviews articles={articles} />
+      </Main>
 
-        <footer></footer>
-      </div>
-    </ThemeProvider>
+      <footer></footer>
+    </div>
   );
 };
 export const getStaticProps: GetStaticProps = async () => {
   const repos = await getPinnedRepos();
   const articles = await getArticleExcerpts();
-  console.log(articles);
   return {
     props: {
       repos,

@@ -6,9 +6,9 @@ interface IBlogPreviews {
 }
 export const BlogPreviews: React.FC<IBlogPreviews> = ({ articles }) => {
   return (
-    <>
+    <section>
       <h2>Recent Articles</h2>
-      <section>
+      <div>
         {articles ? (
           articles.map(({ title, slug, description, category, image }) => (
             <div key={slug} className='card card-article'>
@@ -30,7 +30,7 @@ export const BlogPreviews: React.FC<IBlogPreviews> = ({ articles }) => {
             <h3>Loading</h3>
           </div>
         )}
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
