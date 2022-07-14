@@ -9,3 +9,21 @@ export type Repo = {
     };
   };
 };
+
+export type Article = {
+  title: string;
+  description: string;
+  slug: string;
+  category: {
+    title: string;
+    color: string;
+  };
+  image: {
+    url: string;
+  };
+};
+export type ArticleResponse = {
+  data: {
+    articles: Article[];
+  };
+};

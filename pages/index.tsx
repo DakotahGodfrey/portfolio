@@ -1,12 +1,13 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
 import { ThemeProvider } from "styled-components";
-import { defaultTheme, darkTheme, getFromTheme } from "../styles/theme";
-import { Repo } from "../types";
-import { getPinnedRepos } from "../utils/ghQueries";
+import { Intro, Navbar, RepoCarousel, BlogPreviews } from "../components";
+import { defaultTheme } from "../styles/theme";
+import { getPinnedRepos, getArticleExcerpts } from "../utils";
 
 const Home: NextPage = ({
   repos,
+  articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -15,8 +16,19 @@ const Home: NextPage = ({
           <title>dg_dev</title>
           <meta name='description' content='' />
         </Head>
+<<<<<<< HEAD
 
         <main></main>
+=======
+        <header>
+          <Navbar />
+        </header>
+        <main>
+          <Intro />
+          <RepoCarousel repos={repos} />
+          <BlogPreviews articles={articles} />
+        </main>
+>>>>>>> home-page
 
         <footer></footer>
       </div>
@@ -25,10 +37,12 @@ const Home: NextPage = ({
 };
 export const getStaticProps: GetStaticProps = async () => {
   const repos = await getPinnedRepos();
-  console.log(repos);
+  const articles = await getArticleExcerpts();
+  console.log(articles);
   return {
     props: {
       repos,
+      articles,
     },
   };
 };
