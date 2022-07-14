@@ -34,7 +34,6 @@ query {
     body: JSON.stringify({ query }),
   });
   const repos = await res.json();
-  console.log(repos, "Repo Res");
   const reposArr: [Repo] = repos.data.user.pinnedItems.edges.map(
     (node: Repo) => node
   );
