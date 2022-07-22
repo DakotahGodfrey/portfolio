@@ -29,8 +29,6 @@ const Home: NextPage = ({
         <RepoCarousel repos={repos} />
         <BlogPreviews articles={articles} />
       </Main>
-
-      <footer></footer>
     </div>
   );
 };

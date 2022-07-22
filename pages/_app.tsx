@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "@styles/theme";
 import GlobalStyles from "@styles/GlobalStyles";
 import "@styles/reset.scss";
-import { Navbar } from "@components/Nav";
+import { SiteFooter, Navbar } from "@components/.";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyles />
       <Navbar />
       <Component {...pageProps} />
+      <SiteFooter />
     </ThemeProvider>
   );
 }

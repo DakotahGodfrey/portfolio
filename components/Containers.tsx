@@ -1,10 +1,15 @@
 import styled from "styled-components";
-export const FlexScrollContainer = styled.section`
+interface FlexContainer {
+  scrollable?: boolean;
+}
+export const FlexContainer = styled.section<FlexContainer>`
   .row {
     display: flex;
-    overflow-x: scroll;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
+    ${(scrollable) =>
+      scrollable &&
+      `overflow-x: scroll;
+       -webkit-box-pack: justify;
+       justify-content: space-between;`}
   }
 `;
 interface IGridContainerProps {

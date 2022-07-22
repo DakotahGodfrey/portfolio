@@ -79,6 +79,10 @@ const GlobalStyles = createGlobalStyle`
       font-size: 1.6rem;
       margin-block: auto;
     }
+  }
+   .sr-only{
+     clip: rect(0 0 0 0);
+    clip-path: inset(50%);
   }`;
 
 export default GlobalStyles;

@@ -1,5 +1,5 @@
 import { Repo } from "types/";
-import { FlexScrollContainer } from "./Containers";
+import { FlexContainer } from "./Containers";
 
 interface IRepoCarouselProps {
   repos: Repo[];
@@ -7,7 +7,7 @@ interface IRepoCarouselProps {
 
 export const RepoCarousel: React.FC<IRepoCarouselProps> = ({ repos }) => {
   return (
-    <FlexScrollContainer>
+    <FlexContainer scrollable>
       <h2>Featured Github Repos</h2>
       <div className='row'>
         {repos.length ? (
@@ -32,6 +32,6 @@ export const RepoCarousel: React.FC<IRepoCarouselProps> = ({ repos }) => {
           </div>
         )}
       </div>
-    </FlexScrollContainer>
+    </FlexContainer>
   );
 };

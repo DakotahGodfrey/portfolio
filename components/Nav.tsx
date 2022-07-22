@@ -2,6 +2,7 @@ import { getFromTheme } from "@styles/theme";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
+import Logo from "./Logo";
 
 const NavWrapper = styled.header`
   max-width: 100rem;
@@ -12,7 +13,7 @@ const NavWrapper = styled.header`
     background-color: ${getFromTheme("BG")};
     margin-inline: auto;
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: space-between;
     font-size: 1.8rem;
     padding: 1.6rem;
@@ -21,6 +22,7 @@ const NavWrapper = styled.header`
   }
   ul {
     display: flex;
+    align-items: end;
     justify-content: space-evenly;
   }
   li,
@@ -68,7 +70,7 @@ export const Navbar: React.FC = () => {
         <nav>
           <ul>
             <li>
-              <Link href={"/"}>Logo Here</Link>
+              <Logo />
             </li>
             <li>
               <Link href={"/projects"}>Projects</Link>
