@@ -4,15 +4,18 @@ import { defaultTheme } from "@styles/theme";
 import GlobalStyles from "@styles/GlobalStyles";
 import "@styles/reset.scss";
 import { SiteFooter, Navbar } from "@components/.";
-
+import { Provider } from "react-redux";
+import store from "app/store";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <GlobalStyles />
-      <Navbar />
-      <Component {...pageProps} />
-      <SiteFooter />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={defaultTheme}>
+        <GlobalStyles />
+        <Navbar />
+        <Component {...pageProps} />
+        <SiteFooter />
+      </ThemeProvider>
+    </Provider>
   );
 }
 
