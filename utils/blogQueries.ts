@@ -1,4 +1,4 @@
-import { Article, ArticleResponse } from "../types";
+import { Article, ArticleResponse } from "types/";
 import { BLOG_URL } from "./endpoints";
 
 export const getArticleExcerpts = async (limit: number = 4) => {

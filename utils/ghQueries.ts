@@ -1,4 +1,4 @@
-import { Repo } from "../types";
+import { Repo } from "types/";
 import { GITHUB_URL } from "./endpoints";
 
 export const getPinnedRepos = async () => {

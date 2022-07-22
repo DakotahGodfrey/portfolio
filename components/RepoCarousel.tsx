@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { getFromTheme } from "../styles/theme";
-import { Repo } from "../types";
+import { getFromTheme } from "@styles/theme";
+import { Repo } from "types/";
 
 interface IRepoCarouselProps {
   repos: Repo[];
