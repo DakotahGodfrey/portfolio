@@ -7,9 +7,6 @@ interface IRepoCarouselProps {
 }
 
 const Container = styled.section`
-  h3 {
-    font-size: ${getFromTheme("headingSM")};
-  }
   .row {
     display: flex;
     overflow-x: scroll;

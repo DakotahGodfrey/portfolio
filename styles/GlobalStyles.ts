@@ -44,6 +44,9 @@ const GlobalStyles = createGlobalStyle`
   h1{
     font-size: ${getFromTheme("headingLG")};
   }
+    h3 {
+    font-size: ${getFromTheme("headingSM")};
+  }
   .lang-tag{
     span{
     height: 1.2rem;
@@ -70,6 +73,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 2rem 1rem;
     width: 100%;
     border-radius: 5px;
+    align-content: flex-start;
     p {
       font-size: 1.6rem;
       margin-block: auto;
