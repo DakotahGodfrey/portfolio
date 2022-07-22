@@ -12,9 +12,6 @@ const Main = styled.main`
   p {
     margin-top: 1rem;
   }
-  section {
-    padding: 1rem 3rem;
-  }
 `;
 
 const Home: NextPage = ({

@@ -13,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
       font-size: ${getFromTheme("headingSM")};
     }
     section{
+    padding: 1rem 3rem;
       h2{
         margin-bottom: 2.4rem;
         font-size: ${getFromTheme("headingLG")};

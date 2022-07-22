@@ -1,22 +1,13 @@
-import styled from "styled-components";
-import { getFromTheme } from "@styles/theme";
 import { Repo } from "types/";
+import { FlexScrollContainer } from "./Containers";
 
 interface IRepoCarouselProps {
   repos: Repo[];
 }
 
-const Container = styled.section`
-  .row {
-    display: flex;
-    overflow-x: scroll;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-  }
-`;
 export const RepoCarousel: React.FC<IRepoCarouselProps> = ({ repos }) => {
   return (
-    <Container>
+    <FlexScrollContainer>
       <h2>Featured Github Repos</h2>
       <div className='row'>
         {repos.length ? (
@@ -41,6 +32,6 @@ export const RepoCarousel: React.FC<IRepoCarouselProps> = ({ repos }) => {
           </div>
         )}
       </div>
-    </Container>
+    </FlexScrollContainer>
   );
 };
