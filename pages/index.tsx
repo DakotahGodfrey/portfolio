@@ -1,7 +1,7 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
-import { Intro, RepoCarousel, BlogPreviews } from "components/";
+import { Intro, Navbar, RepoCarousel, BlogPreviews } from "components/";
 import { getFromTheme } from "@styles/theme";
 import { getPinnedRepos, getArticleExcerpts } from "utils/";
 

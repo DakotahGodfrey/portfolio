@@ -63,7 +63,14 @@ const Settings: React.FC = () => {
     </ul>
   );
 };
-export const Navbar: React.FC = () => {
+interface INavbarProps {
+  currentTheme: "dark" | "default";
+  handleThemeSwitch: (theme: "default" | "dark") => void;
+}
+export const Navbar: React.FC<INavbarProps> = ({
+  currentTheme,
+  handleThemeSwitch,
+}) => {
   return (
     <NavWrapper>
       <div>
@@ -87,7 +94,13 @@ export const Navbar: React.FC = () => {
           </ul>
         </nav>
         <div className='nav-menu'>
-          <button>Switch Theme</button>
+          <button
+            onClick={() =>
+              handleThemeSwitch(currentTheme === "dark" ? "default" : "dark")
+            }
+          >
+            Switch Theme
+          </button>
           <button>Settings</button>
         </div>
       </div>
