@@ -1,4 +1,4 @@
-import { getFromTheme } from "@styles/theme";
+import { darkTheme, defaultTheme, getFromTheme } from "@styles/theme";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
@@ -64,8 +64,8 @@ const Settings: React.FC = () => {
   );
 };
 interface INavbarProps {
-  currentTheme: "dark" | "default";
-  handleThemeSwitch: (theme: "default" | "dark") => void;
+  currentTheme: typeof defaultTheme | typeof darkTheme;
+  handleThemeSwitch: (theme: typeof defaultTheme | typeof darkTheme) => void;
 }
 export const Navbar: React.FC<INavbarProps> = ({
   currentTheme,
@@ -96,7 +96,9 @@ export const Navbar: React.FC<INavbarProps> = ({
         <div className='nav-menu'>
           <button
             onClick={() =>
-              handleThemeSwitch(currentTheme === "dark" ? "default" : "dark")
+              handleThemeSwitch(
+                currentTheme === defaultTheme ? darkTheme : defaultTheme
+              )
             }
           >
             Switch Theme

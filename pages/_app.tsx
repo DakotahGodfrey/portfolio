@@ -7,13 +7,13 @@ import { SiteFooter, Navbar } from "@components/.";
 import { useState } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [currentTheme, setCurrentTheme] = useState<"default" | "dark">(
-    "default"
-  );
+  const [currentTheme, setCurrentTheme] = useState<
+    typeof defaultTheme | typeof darkTheme
+  >(defaultTheme);
   const handleThemeSwitch = (theme: typeof currentTheme) =>
     setCurrentTheme(theme);
   return (
-    <ThemeProvider theme={currentTheme === "dark" ? darkTheme : defaultTheme}>
+    <ThemeProvider theme={currentTheme}>
       <GlobalStyles />
       <Navbar
         currentTheme={currentTheme}
