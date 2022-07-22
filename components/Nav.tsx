@@ -13,7 +13,7 @@ const NavWrapper = styled.header`
     background-color: ${getFromTheme("BG")};
     margin-inline: auto;
     display: flex;
-    align-items: end;
+    align-items: center;
     justify-content: space-between;
     font-size: 1.8rem;
     padding: 1.6rem;
@@ -22,7 +22,7 @@ const NavWrapper = styled.header`
   }
   ul {
     display: flex;
-    align-items: end;
+    align-items: center;
     justify-content: space-evenly;
   }
   li,
@@ -58,7 +58,7 @@ const Settings: React.FC = () => {
       - Font Weight Steps
       - Dyslexia Font Option
       - Color Blindness Themes
-      - ZOOM?
+      - Zoom level?
       */}
     </ul>
   );

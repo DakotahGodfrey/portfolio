@@ -2,6 +2,7 @@ import { getFromTheme } from "@styles/theme";
 import { socialLinks } from "@utils/data";
 import styled from "styled-components";
 import { GridContainer } from "./Containers";
+import Logo from "./Logo";
 
 const FooterWrapper = styled.footer`
   max-width: 100rem;
@@ -16,12 +17,17 @@ const FooterWrapper = styled.footer`
     border-radius: 0.5rem;
     font-weight: 700;
   }
+
+  small {
+    font-size: 1rem;
+    padding: 0 1.2rem;
+  }
+
   .social {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-
     ul {
       display: flex;
       /* justify-content: flex-end; */
@@ -34,19 +40,13 @@ const FooterWrapper = styled.footer`
         padding: 1.2rem;
       }
     }
-    small {
-      font-size: 1rem;
-      padding: 0 1.2rem;
-    }
   }
 `;
 
 export const SiteFooter: React.FC = () => {
   return (
     <FooterWrapper>
-      <GridContainer columns={3}>
-        {/* Logo + Mission Statement */}
-        <div></div>
+      <GridContainer columns={2}>
         {/* Quick Contact */}
         <div></div>
         {/* Socials */}
