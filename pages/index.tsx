@@ -27,9 +27,6 @@ const Home: NextPage = ({
         <title>dg_dev</title>
         <meta name='description' content='' />
       </Head>
-      <header>
-        <Navbar />
-      </header>
       <Main>
         <Intro />
         <RepoCarousel repos={repos} />

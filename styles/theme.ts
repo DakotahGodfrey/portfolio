@@ -17,11 +17,11 @@ type ThemeProperty = keyof Theme;
 const defaultTheme: Theme = {
   primary: "#121212",
   secondary: "#fff",
-  accent: "#F20530",
+  accent: "#f39c12",
   muted: "#3d3737",
   BG: "#ddf",
   codeBG: "#121212",
-  link: "#1F51FF",
+  link: "#1f19fd",
   body: "1.6rem",
   headingXL: "3.6rem",
   headingLG: "2.8rem",

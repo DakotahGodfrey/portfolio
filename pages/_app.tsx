@@ -3,11 +3,13 @@ import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "@styles/theme";
 import GlobalStyles from "@styles/GlobalStyles";
 import "@styles/reset.scss";
+import { Navbar } from "@components/Nav";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyles />
+      <Navbar />
       <Component {...pageProps} />
     </ThemeProvider>
   );
