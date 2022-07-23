@@ -1,18 +1,8 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
-import styled from "styled-components";
-import { Intro, Navbar, RepoCarousel, BlogPreviews } from "components/";
-import { getFromTheme } from "@styles/theme";
+import { Intro, RepoCarousel, BlogPreviews } from "components/";
+import { MainWrapper } from "components/Containers";
 import { getPinnedRepos, getArticleExcerpts } from "utils/";
-
-const Main = styled.main`
-  max-width: 100rem;
-  background-color: ${getFromTheme("secondary")};
-  margin-inline: auto;
-  p {
-    margin-top: 1rem;
-  }
-`;
 
 const Home: NextPage = ({
   repos,
@@ -24,11 +14,11 @@ const Home: NextPage = ({
         <title>dg_dev</title>
         <meta name='description' content='' />
       </Head>
-      <Main>
+      <MainWrapper>
         <Intro />
         <RepoCarousel repos={repos} />
         <BlogPreviews articles={articles} />
-      </Main>
+      </MainWrapper>
     </div>
   );
 };
