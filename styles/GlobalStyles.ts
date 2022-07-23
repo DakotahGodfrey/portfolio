@@ -5,13 +5,12 @@ const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${getFromTheme("BG")};
     color: ${getFromTheme("primary")};
+    font-size: ${getFromTheme("headingSM")};
    }
     a{
       color: ${getFromTheme("link")};
     }
-    p{
-      font-size: ${getFromTheme("headingSM")};
-    }
+  
     section{
     padding: 1rem 3rem;
       h2{
@@ -83,6 +82,7 @@ const GlobalStyles = createGlobalStyle`
    .sr-only{
      clip: rect(0 0 0 0);
     clip-path: inset(50%);
-  }`;
+  }
+ `;
 
 export default GlobalStyles;
