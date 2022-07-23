@@ -1,15 +1,24 @@
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
-import { defaultTheme } from "@styles/theme";
+import { defaultTheme, darkTheme } from "@styles/theme";
 import GlobalStyles from "@styles/GlobalStyles";
 import "@styles/reset.scss";
 import { SiteFooter, Navbar } from "@components/.";
+import { useState } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [currentTheme, setCurrentTheme] = useState<
+    typeof defaultTheme | typeof darkTheme
+  >(defaultTheme);
+  const handleThemeSwitch = (theme: typeof currentTheme) =>
+    setCurrentTheme(theme === darkTheme ? defaultTheme : darkTheme);
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={currentTheme}>
       <GlobalStyles />
-      <Navbar />
+      <Navbar
+        currentTheme={currentTheme}
+        handleThemeSwitch={handleThemeSwitch}
+      />
       <Component {...pageProps} />
       <SiteFooter />
     </ThemeProvider>

@@ -1,4 +1,4 @@
-import { getFromTheme } from "@styles/theme";
+import { defaultTheme, darkTheme, getFromTheme } from "@styles/theme";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
@@ -63,7 +63,15 @@ const Settings: React.FC = () => {
     </ul>
   );
 };
-export const Navbar: React.FC = () => {
+
+interface INavbarProps {
+  currentTheme: typeof defaultTheme | typeof darkTheme;
+  handleThemeSwitch: (theme: typeof defaultTheme | typeof darkTheme) => void;
+}
+export const Navbar: React.FC<INavbarProps> = ({
+  currentTheme,
+  handleThemeSwitch,
+}) => {
   return (
     <NavWrapper>
       <div>
@@ -87,7 +95,9 @@ export const Navbar: React.FC = () => {
           </ul>
         </nav>
         <div className='nav-menu'>
-          <button>Switch Theme</button>
+          <button onClick={() => handleThemeSwitch(currentTheme)}>
+            Switch Theme
+          </button>
           <button>Settings</button>
         </div>
       </div>
