@@ -59,11 +59,11 @@ const About: NextPage = ({
           <ul>
             <li>
               <Emoji>🎓</Emoji>
-              <Link href={"/about/contact"}>Courses I reccomend</Link>
+              <Link href={"/about/courses"}>Courses I reccomend</Link>
             </li>
             <li>
               <Emoji>🎧</Emoji>
-              <Link href={"/about/contact"}>Podcasts for Coders</Link>
+              <Link href={"/about/podcasts"}>Podcasts for Coders</Link>
             </li>
           </ul>
         </section>
