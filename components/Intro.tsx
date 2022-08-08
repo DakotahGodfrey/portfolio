@@ -2,7 +2,7 @@ import React from "react";
 
 interface IIntroProps {
   heading: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const Intro: React.FC<IIntroProps> = ({ heading, children }) => {

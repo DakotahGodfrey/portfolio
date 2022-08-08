@@ -14,7 +14,7 @@ const Home: NextPage = ({
         <meta name='description' content='' />
       </Head>
       <MainWrapper>
-        <Intro />
+        <Intro heading={"My Musings on Web Development"} />
         <BlogPreviews articles={articles} />
       </MainWrapper>
     </div>

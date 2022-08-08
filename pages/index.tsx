@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
 import { Intro, RepoCarousel, BlogPreviews } from "components/";
