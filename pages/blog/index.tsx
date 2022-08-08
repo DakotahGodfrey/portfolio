@@ -5,10 +5,8 @@ import { MainWrapper } from "components/Containers";
 import { getPinnedRepos, getArticleExcerpts } from "utils/";
 
 const Home: NextPage = ({
-  repos,
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const greeting = "Hi Welcome To My Portfolio";
   return (
     <div>
       <Head>
@@ -16,21 +14,7 @@ const Home: NextPage = ({
         <meta name='description' content='' />
       </Head>
       <MainWrapper>
-        <Intro heading={greeting}>
-          <p>
-            Welcome, my name is Dakotah Godfrey and I'm a community-taught
-            frontend developer from Toronto, Canada. I enjoy working on projects
-            that make the web a more inclusive and accessible space. I feel web
-            accessibility is an increasingly important topic given how many of
-            us rely on websites and apps to perform cruical daily tasks.
-          </p>
-          <p>
-            Feel free to look through my past and current projects, and if you
-            have a project you'd like to work together on{" "}
-            <a href=''>drop me a line here</a>
-          </p>
-        </Intro>
-        <RepoCarousel repos={repos} />
+        <Intro />
         <BlogPreviews articles={articles} />
       </MainWrapper>
     </div>
@@ -41,7 +25,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const articles = await getArticleExcerpts();
   return {
     props: {
-      repos,
       articles,
     },
   };
